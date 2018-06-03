@@ -1,6 +1,6 @@
 # PraxisseminarSS18_OBS_PLUGIN
 
-Developing  a Open Brodcaster Software (OBS) Plugin, to be used for Usability Studies.
+Developing  a Open Brodcaster Software (OBS) Plugin, to be used for Usability Studies, as a part of the Projectmodule Master course for the M.Sc. Computer Science, at University Regensburg.
 
 Requirements include:
 
