@@ -3,16 +3,17 @@ App.OBSTest = (function () {
 
     "use strict";
     var that = {},
-    controller;
+    login,
+    video;
 
 
     function init() {
-      controller = new App.controller();
-      controller.init();
+      login = new App.login();
+      login.init();
+      video = new App.video();
+      video.init();
+
     }
-
-
-
 
       that.init = init;
       return that;
