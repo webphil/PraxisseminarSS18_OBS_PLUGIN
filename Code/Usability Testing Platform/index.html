@@ -30,48 +30,90 @@
 
 
 
-<div id="content_main">
- <div class="container-fluid text-center">
-   <div class="row content">
-     <div class="col-sm-8 text-left">
-       <h1>Welcome</h1>
-       <p>Beschreibung.</p>
-       <hr>
-       <ul class="buttonlist">
-         <li><button class="defaultbutton" id="btn_testMasterLogin" onClick="showLoginAdmin()"><span class="glyphicon glyphicon-log-in"></span> Testleiter Login</a></button></li>
-         <li><button class="defaultbutton" id="btn_objectLogin" onClick="showLoginObject()"><span class="glyphicon glyphicon-log-in"></span> Testperson Login</a></button></li>
-         <li><button class="defaultbutton" id="btn_tutorial" onClick="showTutorial()"><span class="glyphicon glyphicon-education"></span> Tutorial</a></button></li>
-     </ul>
-     </div>
-</div>
-</div>
-</div>
-
-<div id=content_testMasterLogin>
-  <div class="container-fluid text-center">
-    <div class="row content">
-      <div class="col-sm-8 text-left">
-        <h1>Welcome</h1>
-        <p>TestleiterLogin.</p>
-        <hr>
-
+<div id=content_main>
+  <div class="container-fluid text-left">
+      <h1>Welcome</h1>
+      <p>Beschreibung.</p>
+      <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <ul class="buttonlist">
+          <li><button class="defaultbutton" id="btn_testMasterLogin"><span class="glyphicon glyphicon-log-in"></span> Testleiter Login</a></button></li>
+          <li><button class="defaultbutton" id="btn_objectLogin"><span class="glyphicon glyphicon-log-in"></span> Testperson Login</a></button></li>
+          <li><button class="defaultbutton" id="btn_tutorial"><span class="glyphicon glyphicon-education"></span> Tutorial</a></button></li>
+      </ul>
       </div>
- </div>
+      <div class="col-md-6">
+        <div id="content_testMasterLogin">
+          <div class="container-fluid">
+            <h4>Geben Sie einen Nickname an</h4>
+          </div>
+            <input class="form-control textinput" type="nickname" id="nickname_textmaster" placeholder="Nickname" type="text" required>
+            <div class="container-fluid">
+              <h4>Geben Sie das Passwort für den Testleiter ein</h4>
+            </div>
+
+                <div class="col-md-4 form-group">
+                  <input class="form-control textinput" type="password" id="password_textmaster" name="name" placeholder="Passwort" type="text" required>
+                </div>
+                <div class="row">
+                <div class="col-md-4 form-group">
+                  <button class="secondarybutton" type="submit" id="btn_loginTestmaster"></span>Login</button>
+                </div>
+              </div>
+              <div id="passwordIncorrectDialogue" type="text">Falsches Passwort :(</div>
+              <div id="noNickNameEntered" type="text">Bitte geben Sie einen Nickname ein.</div>
+      </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
+
+
 
 <div id=content_testMasterMain>
-  <div class="container-fluid text-center">
-    <div class="row content">
-      <div class="col-sm-8 text-left">
-        <h1>Welcome</h1>
-        <p>TestleiterMain.</p>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+          <div id="player-container" class="video-container">
+          </div>
         <hr>
-
       </div>
- </div>
+      <div class="col-md-4">
+        <div class="container" style="margin:10px; width:100%;">
+          <div class="well">
+            <h3>Chatto</h3>
+            <div id="chat">
+              Hier kommt die Chatinteraktion;
+             <div id="chat-message" class="well" style="padding:0px;">
+                <div id="chatmessage-sender-information" class="container-fluid" style="padding:0px;">
+                  <div class="col-md-6 text-left" style="padding:10;">
+                    <h5>Sender der Nachricht<h5>
+                  </div>
+                  <div id="chatmessage-timestamp" class="col-md-6 text-right" style="padding:15;">
+                    <h5>Uhrzeit<h5>
+                  </div>
+                </div>
+                <div id="chatmessage" style="padding:10px;">
+                Hier der Content
+                Hier der Content
+                Hier der Content
+                Hier der Content
+                Hier der Content
+
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
+
 
 <div id=content_objectLogin>
   <div class="container-fluid text-center">
@@ -84,6 +126,8 @@
  </div>
 </div>
 </div>
+
+
 
 <div id=content_objectMain>
   <div class="container-fluid text-center">
@@ -127,8 +171,8 @@
 </div>
 
 
-<script>
 
+<script>
       var startContent = document.getElementById('content_main');
       var loginAdminContent = document.getElementById('content_testMasterLogin');
       var loginObjectContent = document.getElementById('content_objectLogin');
@@ -139,72 +183,16 @@
       var icnLogout = document.getElementById('logout-sign');
 
          function showMainContent() {
-           startContent.style.display = "block";
-           loginObjectContent.style.display = "none";
-           loginAdminContent.style.display = "none";
-           adminMain.style.display = "none";
-           objectMain.style.display = "none";
-           tutorial.style.display = "none";
-           icnLogout.style.display = "none";
-           contentExport.style.display = "none";
-
-         }
-
-
-         function showLoginAdmin() {
-           startContent.style.display = "none";
-           loginObjectContent.style.display = "none";
-           loginAdminContent.style.display = "block";
-           adminMain.style.display = "none";
-           objectMain.style.display = "none";
-           tutorial.style.display = "none";
-           icnLogout.style.display = "none";
-           contentExport.style.display = "none";
-
-         }
-         function showLoginObject(){
-           startContent.style.display = "none";
-           loginObjectContent.style.display = "block";
-           loginAdminContent.style.display = "none";
-           adminMain.style.display = "none";
-           objectMain.style.display = "none";
-           tutorial.style.display = "none";
-           icnLogout.style.display = "none";
-           contentExport.style.display = "none";
-
-         }
-         function showObjectMain(){
-           startContent.style.display = "none";
-           loginObjectContent.style.display = "none";
-           loginAdminContent.style.display = "none";
-           adminMain.style.display = "none";
-           objectMain.style.display = "block";
-           tutorial.style.display = "none";
-           icnLogout.style.display = "block";
-           contentExport.style.display = "none";
-
-         }
-         function showAdminMain(){
            startContent.style.display = "none";
            loginObjectContent.style.display = "none";
            loginAdminContent.style.display = "none";
            adminMain.style.display = "block";
            objectMain.style.display = "none";
            tutorial.style.display = "none";
-           icnLogout.style.display = "block";
+           icnLogout.style.display = "none";
            contentExport.style.display = "none";
 
          }
-         function showTutorial(){
-           startContent.style.display = "none";
-           loginObjectContent.style.display = "none";
-           loginAdminContent.style.display = "none";
-           adminMain.style.display = "none";
-           objectMain.style.display = "none";
-           tutorial.style.display = "block";
-           contentExport.style.display = "none";
-
-         }       
 
    </script>
 
@@ -213,7 +201,9 @@
 
 
  <script src="js/app.js"></script>
- <script src="js/controller.js"></script>
+ <script src="js/login.js"></script>
+ <script src="js/video.js"></script>
+
  <script>
    App.OBSTest.init();
  </script>
