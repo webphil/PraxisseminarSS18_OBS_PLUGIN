@@ -8,6 +8,7 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <script src="http://releases.flowplayer.org/js/flowplayer-3.2.12.min.js"></script>
    <link rel="stylesheet" href="src/style.css">
  </head>
  <body onload="showMainContent()">
@@ -76,6 +77,13 @@
     <div class="row">
       <div class="col-md-8">
           <div id="player-container" class="video-container">
+
+            <div id="player1" style="width:844px;height:576px;margin:0 auto;text-align:center">
+            <img src="" height="50" width="50"> </div>
+            <script> $f("player1", "http://releases.flowplayer.org/swf/flowplayer-3.2.18.swf",
+              { clip: { url: 'rtmp://104.248.33.174/live/test', autoPlay: true, provider: 'rtmp' },
+                plugins: { rtmp: { url: 'http://releases.flowplayer.org/flowplayer.rtmp/flowplayer.rtmp-3.2.13.swf',
+                netConnectionUrl: 'rtmp://104.248.33.174/live/test' } } }); </script>
           </div>
         <hr>
       </div>

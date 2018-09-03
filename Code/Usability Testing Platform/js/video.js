@@ -10,9 +10,17 @@ App.video = function () {
 
     function init(){
       console.log("video is auch");
-      playerContainer = document.getElementById('player-container');
+
+
+
+
+
+
+
+
+    /*  playerContainer = document.getElementById('player-container');
       playerContainer.innerHTML = '<iframe src="' + videoUrl + '"></iframe>'
-      console.log(playerContainer.innerHTML);
+      console.log(playerContainer.innerHTML);*/
     }
 
 
