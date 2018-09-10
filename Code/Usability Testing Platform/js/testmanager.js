@@ -8,18 +8,27 @@ App.testmanager = function () {
     btnUploadTest,
     btnStartFreeTest,
     testmanagerStartDialogue,
-
     existingTestDialogue,
     createNewTestDialogue,
     uploadTestDialogue,
-    freeTestDialogue;
+    freeTestDialogue,
+    btnBack,
+    selectedTest,
+    i;
 
 
     function init(){
-    console.log("testmanager is auch");
     testmanagerStartDialogue = document.getElementById("testmanagerStart");
-
-
+    btnBack = document.getElementsByClassName("btnBackTestmanager");
+    for (i in btnBack) {
+      if (btnBack.hasOwnProperty(i)) {
+        btnBack[i].addEventListener("click", showTestmanagerStart);
+        }
+    }
+    existingTestDialogue = document.getElementById("existingTestDialogue");
+    createNewTestDialogue = document.getElementById("newTestDialogue");
+    uploadTestDialogue = document.getElementById("uploadTestDialogue");
+    freeTestDialogue = document.getElementById("freeTestDialogue");
     btnChoseExistingTest = document.getElementById("choseExistingTestBtn");
     btnChoseExistingTest.addEventListener("click", showExistingTestDialogue);
     btnCreateNewTest = document.getElementById("createNewTestBtn");
@@ -31,43 +40,64 @@ App.testmanager = function () {
     }
 
 
-
-
-
     function showExistingTestDialogue(){
-
-
-
+      testmanagerStartDialogue.style.display = "none";
+      existingTestDialogue.style.display = "block";
+      createNewTestDialogue.style.display = "none";
+      uploadTestDialogue.style.display = "none";
+      freeTestDialogue.style.display = "none";
+      handleExistingTestUserInteractions();
     }
 
     function showCreateNewTestDialogue(){
-
+      testmanagerStartDialogue.style.display = "none";
+      existingTestDialogue.style.display = "none";
+      createNewTestDialogue.style.display = "block";
+      uploadTestDialogue.style.display = "none";
+      freeTestDialogue.style.display = "none";
 
     }
 
-
-
     function showUploadTestDialogue(){
-
-
-
+      testmanagerStartDialogue.style.display = "none";
+      existingTestDialogue.style.display = "none";
+      createNewTestDialogue.style.display = "none";
+      uploadTestDialogue.style.display = "block";
+      freeTestDialogue.style.display = "none";
     }
 
 
     function showFreeTestDialogue(){
-
-
-
+      testmanagerStartDialogue.style.display = "none";
+      existingTestDialogue.style.display = "none";
+      createNewTestDialogue.style.display = "none";
+      uploadTestDialogue.style.display = "none";
+      freeTestDialogue.style.display = "block";
     }
 
 
 
     function showTestmanagerStart(){
+      testmanagerStartDialogue.style.display = "block";
+      existingTestDialogue.style.display = "none";
+      createNewTestDialogue.style.display = "none";
+      uploadTestDialogue.style.display = "none";
+      freeTestDialogue.style.display = "none";
+    }
 
 
-
+    function handleExistingTestUserInteractions(){
+      $('.table > tbody > tr').click(function() {
+      selectedTest = $(this).find('th').text();
+      console.log(selectedTest);
+      });
 
     }
+
+
+
+
+
 
 
 
