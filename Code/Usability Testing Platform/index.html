@@ -19,7 +19,7 @@
        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
          <span class="icon-bar">Logout</span>
        </button>
-       <a class="navbar-brand">Regensburger Usability Testing Plattform</a>
+       <p class="header">Regensburger Usability Testing Plattform</p>
      </div>
      <div class="collapse navbar-collapse">
        <ul class="nav navbar-nav navbar-right">
@@ -76,24 +76,66 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-8">
-          <div id="player-container" class="video-container">
-
-            <div id="player1" style="width:844px;height:576px;margin:0 auto;text-align:center">
-            <img src="" height="50" width="50"> </div>
-            <script> $f("player1", "http://releases.flowplayer.org/swf/flowplayer-3.2.18.swf",
-              { clip: { url: 'rtmp://104.248.33.174/live/test', autoPlay: true, provider: 'rtmp' },
-                plugins: { rtmp: { url: 'http://releases.flowplayer.org/flowplayer.rtmp/flowplayer.rtmp-3.2.13.swf',
-                netConnectionUrl: 'rtmp://104.248.33.174/live/test' } } }); </script>
+        <div class="video-container">
+            <div id="player1" class="flowplayer" data-aspect-ratio="4:3"></div>
           </div>
-        <hr>
+
+      <div class="well">
+        <h3>Hier Annotations</h3>
       </div>
+    </div>
+
+
+
       <div class="col-md-4">
         <div class="container" style="margin:10px; width:100%;">
+          <div class="well">
+              <div id="testmanagerStart">
+                <h3>Testmanager</h3>
+                  <div id="testmanager">
+                    <div><a class="button3" id="choseExistingTestBtn">Einen bestehenden Test wählen<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
+                    <div><a class="button3" id="createNewTestBtn">Einen neuen Test anlegen<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
+                    <div><a class="button3" id="uploadNewTestBtn">Einen neuen Test hochladen<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
+                    <div><a class="button3" id="startFreeTestBtn">Einen freien Test starten<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
+                  </div>
+            </div>
+
+            <div id="existingTestDialogue">
+              <h3>existing Test</h3>
+            </div>
+
+
+            <div id="newTestDialogue">
+              <h3>neuer Test</h3>
+            </div>
+
+            <div id="uploadTestDialogue">
+              <h3>Test hochladen</h3>
+            </div>
+
+            <div id="freeTestDialogue">
+              <h3>freien Test starten</h3>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="container" style="margin:10px; width:100%;">
           <div class="well">
             <h3>Chatto</h3>
             <div id="chat">
               Hier kommt die Chatinteraktion;
-             <div id="chat-message" class="well" style="padding:0px;">
+             <div id="chat-message" style="padding:0px;">
+               <hr>
                 <div id="chatmessage-sender-information" class="container-fluid" style="padding:0px;">
                   <div class="col-md-6 text-left" style="padding:10;">
                     <h5>Sender der Nachricht<h5>
@@ -102,18 +144,15 @@
                     <h5>Uhrzeit<h5>
                   </div>
                 </div>
-                <div id="chatmessage" style="padding:10px;">
+                <hr>
+                <div id="chatmessage" class="chatmessage">
                 Hier der Content
                 Hier der Content
                 Hier der Content
                 Hier der Content
                 Hier der Content
-
                 </div>
               </div>
-
-
-
             </div>
           </div>
         </div>
@@ -210,7 +249,10 @@
 
  <script src="js/app.js"></script>
  <script src="js/login.js"></script>
+ <script src="js/testmanager.js"></script>
  <script src="js/video.js"></script>
+ <script src="js/annotations.js"></script>
+
 
  <script>
    App.OBSTest.init();
