@@ -86,18 +86,30 @@ App.testmanager = function () {
     }
 
 
+
+
+    function loadExistingTestsFromDatabase(){
+    /*  <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td scope="col"><span class="glyphicon glyphicon-menu-right" style="padding: 4px;"></td>
+      </tr>*/
+
+
+    }
+
     function handleExistingTestUserInteractions(){
       $('.table > tbody > tr').click(function() {
       selectedTest = $(this).find('th').text();
-      console.log(selectedTest);
+      displaySelectedTest(selectedTest);
       });
-
     }
 
 
 
-
-
+    function displaySelectedTest(tests){
+    }
 
 
 
