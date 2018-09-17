@@ -26,6 +26,7 @@
 .header{
   font-size: 20px;
   font-weight: lighter;
+  cursor: default;
   color: white;
   padding: 10px;
   letter-spacing: 1px;
@@ -74,6 +75,7 @@
 
 }
 
+
 .defaultbutton span {
   cursor: pointer;
   display: inline-block;
@@ -94,6 +96,9 @@
 }
 
 
+
+
+
 .secondarybutton {
   cursor: pointer;
   border-radius: 10px;
@@ -112,7 +117,17 @@
   font-size: 16px;
   padding:8px;
   color: black;
+  cursor: pointer;
 }
+
+.btnBackTestmanager{
+  font-size: 16px;
+  padding:8px;
+  color: black;
+  cursor: pointer;
+}
+
+
 
 .textinput{
   padding: 18px;
@@ -125,6 +140,75 @@
   background-color: lightgrey;
   border-radius: 4px;
 }
+
+
+
+#chat-wrap{
+  border: 1px
+  solid #eee;
+}
+
+#chat-area{
+  height: 300px;
+  overflow: auto;
+  border: 1px
+  solid #666;
+  padding: 20px;
+  background: white;
+}
+
+#chat-area span{
+  color: black;
+  background: #333;
+  padding: 4px 8px;
+  border-radius: 3px;
+  margin: 0 5px 0 0;
+}
+
+
+#chat-area p{
+  padding: 8px 0;
+  border-bottom: 1px
+  solid #666;
+}
+
+#name-area{
+  position: absolute;
+  color: black;
+  font: bold 12px "Helvetica", Sans-Serif;
+}
+
+
+#name-area span {
+  color: #fa9f00;
+}
+
+#send-message-area p{
+  padding-top: 10px;
+  float: left;
+  color: #666;
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+
+#sendie{
+  border: 1px
+  color: #666;
+  width: 100%;
+  font: 12px "Helvetica", Sans-Serif;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* On small screens, set height to 'auto' for sidenav and grid */

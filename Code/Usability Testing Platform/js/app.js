@@ -6,10 +6,12 @@ App.OBSTest = (function () {
     login,
     video,
     testmanager,
-    annotations;
+    annotations,
+    chatUI;
 
 
     function init() {
+
       login = new App.login();
       login.init();
       testmanager = new App.testmanager();
@@ -18,6 +20,8 @@ App.OBSTest = (function () {
       video.init(),
       annotations = new App.annotations();
       annotations.init();
+      chatUI = new App.chatUI();
+      chatUI.init();
     }
 
       that.init = init;
