@@ -10,7 +10,6 @@ App.annotations = function () {
 
 
     function init(){
-    console.log("annotations is auch");
     singleAnnotation = document.getElementById("annotation");
     btnAddAnnotation = document.getElementById("btnSubmitAnnotation");
     btnAddAnnotation.addEventListener("click", handleUserInput);
