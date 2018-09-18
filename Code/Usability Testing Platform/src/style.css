@@ -120,6 +120,25 @@
   cursor: pointer;
 }
 
+.roundButton{
+  text-align: center;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.roundButton:hover{
+  background-color: #565656;
+}
+
+
+
+
+
+
 .btnBackTestmanager{
   font-size: 16px;
   padding:8px;

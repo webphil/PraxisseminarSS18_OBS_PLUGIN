@@ -5,8 +5,7 @@ App.annotations = function () {
     var that = {},
     singleAnnotation,
     timestamp,
-    btnAddAnnotation,
-    annotation;
+    btnAddAnnotation;
 
 
     function init(){
@@ -17,20 +16,22 @@ App.annotations = function () {
 
 
     function handleUserInput(){
+      if(singleAnnotation.value != ""){
       var time =  new Date();
       timestamp= ""+ time.getHours() + ":"
                   + time.getMinutes() + ":"
                   + time.getSeconds();
-      annotation = timestamp + " - " + singleAnnotation.value;
-      singleAnnotation.value="";
-      writeAnnotationToFile();
+      var annotation = timestamp + " - " + singleAnnotation.value;
+      writeAnnotationToFile(annotation);
+      }
+    singleAnnotation.value="";
     }
 
 
 
 //todo
 
-    function writeAnnotationToFile(){
+    function writeAnnotationToFile(annotation){
 
 
     }

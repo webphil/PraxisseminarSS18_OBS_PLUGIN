@@ -29,7 +29,6 @@ App.login = function () {
       adminMain = document.getElementById('content_testMasterMain');
       objectMain = document.getElementById('content_objectMain');
       tutorial = document.getElementById('content_tutorial');
-      contentExport = document.getElementById('content_export');
       icnLogout = document.getElementById('logout-sign');
       btnTestMasterLogin = document.getElementById('btn_testMasterLogin');
       btnTestMasterLogin.addEventListener("click", showTestmasterLoginDialogue);
@@ -48,7 +47,6 @@ App.login = function () {
       objectMain.style.display = "none";
       tutorial.style.display = "none";
       icnLogout.style.display = "none";
-      contentExport.style.display = "none";
     }
 
     function showObjectLoginDialogue(){
@@ -59,7 +57,6 @@ App.login = function () {
       objectMain.style.display = "none";
       tutorial.style.display = "none";
       icnLogout.style.display = "none";
-      contentExport.style.display = "none";
 
 
     }
@@ -71,7 +68,6 @@ App.login = function () {
       adminMain.style.display = "none";
       objectMain.style.display = "none";
       tutorial.style.display = "block";
-      contentExport.style.display = "none";
 
     }
 
