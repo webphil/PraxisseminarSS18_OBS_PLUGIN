@@ -5,12 +5,11 @@ App.testmanager = function () {
     var that = {},
     btnChoseExistingTest,
     btnCreateNewTest,
-    btnUploadTest,
+
     btnStartFreeTest,
     testmanagerStartDialogue,
     existingTestDialogue,
     createNewTestDialogue,
-    uploadTestDialogue,
     freeTestDialogue,
     btnBack,
     selectedTest,
@@ -27,14 +26,11 @@ App.testmanager = function () {
     }
     existingTestDialogue = document.getElementById("existingTestDialogue");
     createNewTestDialogue = document.getElementById("newTestDialogue");
-    uploadTestDialogue = document.getElementById("uploadTestDialogue");
     freeTestDialogue = document.getElementById("freeTestDialogue");
     btnChoseExistingTest = document.getElementById("choseExistingTestBtn");
     btnChoseExistingTest.addEventListener("click", showExistingTestDialogue);
     btnCreateNewTest = document.getElementById("createNewTestBtn");
     btnCreateNewTest.addEventListener("click", showCreateNewTestDialogue);
-    btnUploadTest = document.getElementById("uploadNewTestBtn");
-    btnUploadTest.addEventListener("click", showUploadTestDialogue);
     btnStartFreeTest = document.getElementById("startFreeTestBtn");
     btnStartFreeTest.addEventListener("click", showFreeTestDialogue);
     }
@@ -44,26 +40,19 @@ App.testmanager = function () {
       testmanagerStartDialogue.style.display = "none";
       existingTestDialogue.style.display = "block";
       createNewTestDialogue.style.display = "none";
-      uploadTestDialogue.style.display = "none";
       freeTestDialogue.style.display = "none";
-      handleExistingTestUserInteractions();
+      var existingTest = new App.loadExistingTest();
+      existingTest.init();
     }
 
     function showCreateNewTestDialogue(){
       testmanagerStartDialogue.style.display = "none";
       existingTestDialogue.style.display = "none";
       createNewTestDialogue.style.display = "block";
-      uploadTestDialogue.style.display = "none";
       freeTestDialogue.style.display = "none";
+      var createNewTest = new App.createNewTest();
+      createNewTest.init();
 
-    }
-
-    function showUploadTestDialogue(){
-      testmanagerStartDialogue.style.display = "none";
-      existingTestDialogue.style.display = "none";
-      createNewTestDialogue.style.display = "none";
-      uploadTestDialogue.style.display = "block";
-      freeTestDialogue.style.display = "none";
     }
 
 
@@ -71,7 +60,6 @@ App.testmanager = function () {
       testmanagerStartDialogue.style.display = "none";
       existingTestDialogue.style.display = "none";
       createNewTestDialogue.style.display = "none";
-      uploadTestDialogue.style.display = "none";
       freeTestDialogue.style.display = "block";
     }
 
@@ -81,35 +69,11 @@ App.testmanager = function () {
       testmanagerStartDialogue.style.display = "block";
       existingTestDialogue.style.display = "none";
       createNewTestDialogue.style.display = "none";
-      uploadTestDialogue.style.display = "none";
       freeTestDialogue.style.display = "none";
     }
 
 
 
-
-    function loadExistingTestsFromDatabase(){
-    /*  <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td scope="col"><span class="glyphicon glyphicon-menu-right" style="padding: 4px;"></td>
-      </tr>*/
-
-
-    }
-
-    function handleExistingTestUserInteractions(){
-      $('.table > tbody > tr').click(function() {
-      selectedTest = $(this).find('th').text();
-      displaySelectedTest(selectedTest);
-      });
-    }
-
-
-
-    function displaySelectedTest(tests){
-    }
 
 
 

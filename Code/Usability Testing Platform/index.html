@@ -109,12 +109,12 @@
       <div class="col-md-4">
         <div class="container" style="margin:10px; width:100%;">
           <div class="well">
+
               <div id="testmanagerStart">
                 <h3>Testmanager</h3>
                   <div id="testmanager">
                     <div><a class="button3" id="choseExistingTestBtn">Einen bestehenden Test wählen<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
                     <div><a class="button3" id="createNewTestBtn">Einen neuen Test anlegen<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
-                    <div><a class="button3" id="uploadNewTestBtn">Einen neuen Test hochladen<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
                     <div><a class="button3" id="startFreeTestBtn">Einen freien Test starten<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
                   </div>
             </div>
@@ -193,30 +193,70 @@
                 </tr>
 
               </tbody>
-            </table>
-          </div>
-
-
-
-
-            <div class="btnBackTestmanager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px;"></div>
+            </table></div>
+              <div class="btnBackTestmanager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px;"></div>
             </div>
+
+
+
+
 
 
             <div id="newTestDialogue" style="display: none;">
-              <h3>neuer Test</h3>
-              <div class="btnBackTestmanager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px;"></div>
+              <div id="newTestDialogueStart">
+                <h4>Neuer Test</h4>
+                <h5>Geben Sie einen Titel für den Test ein: </h5>
+                <h6 id="notificationEnterTitle" style="color: red; display: none;">Sie müssen einen Titel angeben</h6>
+                <input type="text" class="form-control" id="titleNewTest" placeholder="Titel"></input>
+                <div style="display: inline-block">
+                  <div style="float: right"><a class="button3" id="btnAddTasksToTest">Tasks anlegen<span class="glyphicon glyphicon-menu-right" style="padding: 10px; margin-left: 0;"></a></div>
+                  <div style="float: left"><a class="button3" id="btnBackToTestManager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px; margin-right: 0;"></a></div>
+                </div>
+              </div>
+
+
+
+              <div id="addTasksDialogue" style="display: none">
+                <h4>Tasks hinzufügen: </h4>
+                <ul id="addedTasks" style="padding:4px;"></ul>
+                <textarea id="taskInput" maxlength='100' style="width: 100%;"></textarea>
+                <button class="roundButton" id="btnAddSingleTask" style="float: right"><span class="glyphicon glyphicon-plus" style="color: white; padding: 2px;"></button>
+                <div style="padding: 30px 0 0 0">
+                  <div style="float: right; padding: 0 0 300px 0"><a class="button3" id="saveTest">Test Speichern<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
+                  <div style="float: left"><a class="button3" id="btnBackToTestManager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px; margin-right: 0;"></a></div>
+                </div>
+              </div>
             </div>
 
-            <div id="uploadTestDialogue" style="display: none;">
-              <h3>Test hochladen</h3>
-              <div class="btnBackTestmanager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px;"></div>
-            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             <div id="freeTestDialogue" style="display: none;">
               <h3>freien Test starten</h3>
               <div class="btnBackTestmanager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px;"></div>
             </div>
+
 
 
 
@@ -283,18 +323,6 @@
 
 
 
-<div id=content_export>
-  <div class="container-fluid text-center">
-    <div class="row content">
-      <div class="col-sm-8 text-left">
-        <h1>Welcome</h1>
-        <p>Export.</p>
-        <hr>
-
-      </div>
- </div>
-</div>
-</div>
 
 
 
@@ -305,7 +333,6 @@
       var adminMain = document.getElementById('content_testMasterMain');
       var objectMain = document.getElementById('content_objectMain');
       var tutorial = document.getElementById('content_tutorial');
-      var contentExport = document.getElementById('content_export');
       var icnLogout = document.getElementById('logout-sign');
 
          function showMainContent() {
@@ -331,6 +358,9 @@
  <script src="js/video.js"></script>
  <script src="js/annotations.js"></script>
  <script src="js/chatUI.js"></script>
+ <script src="js/createNewTest.js"></script>
+ <script src="js/loadExistingTest.js"></script>
+
 
  <script>
    App.OBSTest.init();
