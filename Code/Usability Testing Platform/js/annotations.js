@@ -16,24 +16,36 @@ App.annotations = function () {
 
 
     function handleUserInput(){
-      if(singleAnnotation.value != ""){
-      var time =  new Date();
-      timestamp= ""+ time.getHours() + ":"
-                  + time.getMinutes() + ":"
-                  + time.getSeconds();
-      var annotation = timestamp + " - " + singleAnnotation.value;
-      writeAnnotationToFile(annotation);
-      }
-    singleAnnotation.value="";
+      writeAnnotationToFile();
     }
 
 
 
 //todo
 
-    function writeAnnotationToFile(annotation){
+    function writeAnnotationToFile(){
 
+      var dateTime = new Date();
+      var timestamp = ""+ dateTime.getHours() + ":"
+                        + dateTime.getMinutes() + ":"
+                        + dateTime.getSeconds();
+      var date = ""+ dateTime.getDate() + "."
+                   + dateTime.getMonth() + "."
+                   + dateTime.getFullYear();
 
+      var annotation = document.getElementById("annotation").value;
+      var addAnnotation = timestamp + "-" + document.getElementById("annotation").value;
+      document.getElementById("annotation").value = '';
+
+      $.ajax({
+        type: "POST",
+        url: '../php/SaveAnnotations.php',
+        data: {date: date, annotation: addAnnotation},
+        dataType: "json",
+        success: function(data) {
+          console.log(""+addAnnotation+";"+date);
+        }
+      });
     }
 
 
