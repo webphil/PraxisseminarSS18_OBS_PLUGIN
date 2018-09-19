@@ -11,11 +11,14 @@ App.createNewTest = function () {
   btnBackToTestManager,
   titleNewTest,
   resultJson,
-  btnAddTask
+  btnAddTask,
+  chat
   ;
 
 
   function init(){
+    chat = document.getElementById("chatContainer");
+    chat.style.display="none";
     newTestDialogueStart = document.getElementById("newTestDialogueStart");
     newTestDialogueStart.style.display="block";
     btnSaveTest = document.getElementById("saveNewTest");
@@ -44,6 +47,7 @@ App.createNewTest = function () {
   function goBackToTestManager(){
     newTestDialogueStart.style.display= "none";
     document.getElementById("testmanagerStart").style.display="block";
+    chat.style.display = "block";
   }
 
   function saveTest(){
@@ -67,6 +71,7 @@ App.createNewTest = function () {
     else{
       var notificationEnterTitle = document.getElementById("notificationEnterTitle");
       notificationEnterTitle.style.display = "block";
+      chat.style.display = "block";
     }
   }
 
