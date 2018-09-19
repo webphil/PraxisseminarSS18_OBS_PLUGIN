@@ -22,6 +22,7 @@ App.createNewTest = function () {
     btnSaveTest.addEventListener("click", saveTest);
     inputTitleNewTest = document.getElementById("titleNewTest");
     btnBackToTestManager = document.getElementById("btnBackToTestManager");
+    btnBackToTestManager.addEventListener("click", goBackToTestManager);
     btnAddTask = document.getElementById("btnAddSingleTask");
     btnAddTask.addEventListener("click", function(){
       var taskInput = document.getElementById("taskInput");
@@ -36,11 +37,14 @@ App.createNewTest = function () {
         task.appendChild(deleteBtn);
         tasklist.appendChild(task);
         taskInput.value="";
-       ///////// TODO:  //add taskInput to task-taskjson
       }
     });
   }
 
+  function goBackToTestManager(){
+    newTestDialogueStart.style.display= "none";
+    document.getElementById("testmanagerStart").style.display="block";
+  }
 
   function saveTest(){
     if(inputTitleNewTest.value != ""){
@@ -73,16 +77,10 @@ App.createNewTest = function () {
   }
 
 
-
-
   function processResultJson(resultJson){
     //TODO
 
   }
-
-
-
-
 
 
   that.init = init;
