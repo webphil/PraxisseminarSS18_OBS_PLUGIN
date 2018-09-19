@@ -199,51 +199,22 @@
 
 
 
-
-
-
             <div id="newTestDialogue" style="display: none;">
               <div id="newTestDialogueStart">
                 <h4>Neuer Test</h4>
                 <h5>Geben Sie einen Titel für den Test ein: </h5>
                 <h6 id="notificationEnterTitle" style="color: red; display: none;">Sie müssen einen Titel angeben</h6>
                 <input type="text" class="form-control" id="titleNewTest" placeholder="Titel"></input>
-                <div style="display: inline-block">
-                  <div style="float: right"><a class="button3" id="btnAddTasksToTest">Tasks anlegen<span class="glyphicon glyphicon-menu-right" style="padding: 10px; margin-left: 0;"></a></div>
-                  <div style="float: left"><a class="button3" id="btnBackToTestManager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px; margin-right: 0;"></a></div>
-                </div>
-              </div>
-
-
-
-              <div id="addTasksDialogue" style="display: none">
                 <h4>Tasks hinzufügen: </h4>
-                <ul id="addedTasks" style="padding:4px;"></ul>
+                <ol id="addedTasks" style="padding:10px;"></ol>
                 <textarea id="taskInput" maxlength='100' style="width: 100%;"></textarea>
                 <button class="roundButton" id="btnAddSingleTask" style="float: right"><span class="glyphicon glyphicon-plus" style="color: white; padding: 2px;"></button>
                 <div style="padding: 30px 0 0 0">
-                  <div style="float: right; padding: 0 0 300px 0"><a class="button3" id="saveTest">Test Speichern<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
+                  <div style="float: right; padding: 0 0 300px 0"><a class="button3" id="saveNewTest">Test Speichern<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
                   <div style="float: left"><a class="button3" id="btnBackToTestManager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px; margin-right: 0;"></a></div>
                 </div>
               </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -263,7 +234,7 @@
 
         </div>
       </div>
-      <div class="container" style="margin:10px; width:100%;">
+      <div id="chatContainer" class="container" style="margin:10px; width:100%;">
           <div class="well">
             <p id="name-area"></p>
             <div id="chat-wrap">

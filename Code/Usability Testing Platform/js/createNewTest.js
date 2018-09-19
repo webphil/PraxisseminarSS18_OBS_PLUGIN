@@ -1,97 +1,93 @@
 var App = App || {};
 App.createNewTest = function () {
 
-
-
   "use strict";
   var that = {},
   newTestDialogueStart,
-  btnAddTasksToTest,
+  btnSaveTest,
   inputTitleNewTest,
+  tasks = "",
+  taskCounter,
   btnBackToTestManager,
   titleNewTest,
-  resultJson
+  resultJson,
+  btnAddTask,
+  chat
   ;
 
 
   function init(){
+    chat = document.getElementById("chatContainer");
+    chat.style.display="none";
     newTestDialogueStart = document.getElementById("newTestDialogueStart");
     newTestDialogueStart.style.display="block";
-    btnAddTasksToTest = document.getElementById("btnAddTasksToTest");
-    btnAddTasksToTest.addEventListener("click", goToAddTasksDialogue);
+    btnSaveTest = document.getElementById("saveNewTest");
+    btnSaveTest.addEventListener("click", saveTest);
     inputTitleNewTest = document.getElementById("titleNewTest");
     btnBackToTestManager = document.getElementById("btnBackToTestManager");
+    btnBackToTestManager.addEventListener("click", goBackToTestManager);
+    btnAddTask = document.getElementById("btnAddSingleTask");
+    btnAddTask.addEventListener("click", function(){
+      var taskInput = document.getElementById("taskInput");
+      var tasklist=document.getElementById("addedTasks");
+      var task = document.createElement('li');
+      var deleteBtn = document.createElement('a');
+      if(taskInput.value != ""){
+        task.appendChild(document.createTextNode(taskInput.value));
+        deleteBtn.innerHTML = "x";
+        deleteBtn.classList.add("button3");
+        deleteBtn.addEventListener("click", removeItemFromList);
+        task.appendChild(deleteBtn);
+        tasklist.appendChild(task);
+        taskInput.value="";
+      }
+    });
   }
 
+  function goBackToTestManager(){
+    newTestDialogueStart.style.display= "none";
+    document.getElementById("testmanagerStart").style.display="block";
+    chat.style.display = "block";
+  }
 
-
-  function goToAddTasksDialogue(){
+  function saveTest(){
     if(inputTitleNewTest.value != ""){
-///////// TODO: titel New test to json
-      titleNewTest = inputTitleNewTest.value;
+      var tasklist=document.getElementById("addedTasks");
+      var task = tasklist.getElementsByTagName("li");
+      for (var i = 0; i < task.length; ++i) {
+        var text = task[i].innerText;
+        text = text.slice(0, text.length-1);
+          if(i<task.length-1){
+            tasks += '"task ' + (i+1) + '":"'+ text + '",'
+          }
+          else{
+            tasks += '"task ' + (i+1) + '":"' + text + '"'
+          }
+      }
+      resultJson='{"title":"' + inputTitleNewTest.value + '","description":"text","test":{' + tasks + '}}';
+      processResultJson(resultJson);
       newTestDialogueStart.style.display = "none";
-      var addTasksDialogue = document.getElementById("addTasksDialogue");
-      addTasksDialogue.style.display="block";
-      processUserInputInAddTasks();
-
     }
     else{
       var notificationEnterTitle = document.getElementById("notificationEnterTitle");
       notificationEnterTitle.style.display = "block";
+      chat.style.display = "block";
     }
-
   }
 
-
-
-  function processUserInputInAddTasks(){
+  function removeItemFromList(){
+    var removable = this.parentElement;
     var tasklist=document.getElementById("addedTasks");
-    var taskInput = document.getElementById("taskInput");
-    var btnAddTask = document.getElementById("btnAddSingleTask");
-    btnAddTask.addEventListener("click", function(){
-     if(taskInput.value != ""){
-       var entry = document.createElement('li');
-       entry.appendChild(document.createTextNode(taskInput.value));
-       tasklist.appendChild(entry);
-       taskInput.value="";
-
-
-
-       ///////// TODO:  //add taskInput to task-taskjson
-
-      }
-    });
-
-    ///////// TODO:  //processResultJson
+    tasklist.removeChild(removable);
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  function processResultJson(){
-
-
-
-
-
+  function processResultJson(resultJson){
+    //TODO
 
   }
-
 
 
   that.init = init;
   return that;
-
-
 };
