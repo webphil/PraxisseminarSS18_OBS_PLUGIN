@@ -13,6 +13,8 @@ App.loadExistingTest = function () {
   }
 
 
+
+
   function handleExistingTestUserInteractions(){
     $('.table > tbody > tr').click(function() {
     var selectedTest = $(this).find('td')[0].innerHTML;
@@ -22,7 +24,8 @@ App.loadExistingTest = function () {
   }
 
 
-  function loadExistingTestsFromDatabase(){
+
+    function loadExistingTestsFromDatabase(){
       var table = document.getElementById("tableTests");
       table.innerHTML = "";
       var tableBody = document.createElement('tbody');
