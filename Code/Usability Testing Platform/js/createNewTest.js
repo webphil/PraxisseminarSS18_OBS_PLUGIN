@@ -58,13 +58,17 @@ App.createNewTest = function () {
         var text = task[i].innerText;
         text = text.slice(0, text.length-1);
           if(i<task.length-1){
-            tasks += '"task ' + (i+1) + '":"'+ text + '",'
+            tasks += '"task' + (i+1) + '":"'+ text + '",'
           }
           else{
-            tasks += '"task ' + (i+1) + '":"' + text + '"'
+            tasks += '"task' + (i+1) + '":"' + text + '"'
           }
       }
-      resultJson='{"title":"' + inputTitleNewTest.value + '","description":"text","test":{' + tasks + '}}';
+      var dateTime = new Date();
+      var date = ""+ dateTime.getDate() + "."
+                   + dateTime.getMonth() + "."
+                   + dateTime.getFullYear();
+      resultJson='{"title":"' + inputTitleNewTest.value + '","date":"'+date+'","test":{' + tasks + '}}';
       processResultJson(resultJson);
       newTestDialogueStart.style.display = "none";
     }
