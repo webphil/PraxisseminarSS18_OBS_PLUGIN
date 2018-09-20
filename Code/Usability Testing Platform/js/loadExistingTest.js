@@ -46,8 +46,27 @@ App.loadExistingTest = function () {
     }
 
     function asd(data){
-      console.log("Done");
-      console.log(""+data[1]);
+
+      var i;
+      for(i = 0; i < data.length; i ++){
+
+        var tests = $.parseJSON(data[i]);
+        var tableRef = document.getElementById('tableTests').getElementsByTagName('tbody')[0];
+        var newRow   = tableRef.insertRow(tableRef.rows.length);
+
+        var newCellNumber = newRow.insertCell(0)
+        var newCellTitle  = newRow.insertCell(1);
+        var newCellDate = newRow.insertCell(2);
+
+        newCellNumber.innerHTML = ""+ (i+1);
+        newCellTitle.innerHTML = tests.title;
+        newCellDate.innerHTML = tests.date;
+
+        
+        console.log(data[i]);
+        console.log(Object.keys(tests).length);
+      }
+      
     }
 
 
