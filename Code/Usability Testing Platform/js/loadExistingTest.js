@@ -10,6 +10,7 @@ App.loadExistingTest = function () {
 
   function init(){
     handleExistingTestUserInteractions();
+    loadExistingTestsFromDatabase();
   }
 
 
@@ -33,13 +34,20 @@ App.loadExistingTest = function () {
 
 
     function loadExistingTestsFromDatabase(){
-      /*  <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td scope="col"><span class="glyphicon glyphicon-menu-right" style="padding: 4px;"></td>
-        </tr>*/
-      }
+      $.ajax({
+        type: "POST",
+        url: '../php/loadTests.php',
+        dataType: "json",
+        success: function(data) {
+          processTests(data);
+        }
+      });
+    }
+
+    function processTests(data){
+      console.log("Done");
+      console.log(""+data[1]);
+    }
 
 
 

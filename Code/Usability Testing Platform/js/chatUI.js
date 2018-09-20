@@ -22,14 +22,14 @@ App.chatUI = function () {
         // strip tags
         name = name.replace(/(<([^>]+)>)/ig,"");
         // display name on page
-        $("#name-area").html("You are: <span>" + name + "</span>");
+        $(".name-area").html("You are: <span>" + name + "</span>");
 
 
 
 $(function() {
    chat.getState();
    // watch textarea for key presses
-   $("#sendie").keydown(function(e) {
+   $(".sendie").keydown(function(e) {
      var key = e.keyCode;
        //all keys including return.
        if (key >= 33) {
@@ -44,7 +44,7 @@ $(function() {
 
 
    // watch textarea for release of key press
-   $('#sendie').keyup(function(e) {
+   $('.sendie').keyup(function(e) {
       if (e.keyCode == 13) {
             var text = $(this).val();
             var maxLength = $(this).attr("maxlength");
@@ -103,10 +103,10 @@ $(function() {
   			success: function(data) {
   				if(data.text){
   					for (var i = 0; i < data.text.length; i++) {
-  						$('#chat-area').append($("<div>" + "    " + data.text[i] + "   " + "</div>"));
+  						$('.chat-area').append($("<div>" + "    " + data.text[i] + "   " + "</div>"));
   					}
   				}
-  				document.getElementById('chat-area').scrollTop = document.getElementById('chat-area').scrollHeight;
+  				document.getElementsByClassName('chat-area').scrollTop = document.getElementsByClassName('chat-area').scrollHeight;
   				instanse = false;
   				state = data.state;
   			}
