@@ -9,8 +9,8 @@ App.chatUI = function () {
 
 
 
-  function init(){
-    var name="julia";
+  function init(nickname){
+    var name=nickname;
     var chat =  new Chat();
     window.setInterval(chat.update, 10000);
 

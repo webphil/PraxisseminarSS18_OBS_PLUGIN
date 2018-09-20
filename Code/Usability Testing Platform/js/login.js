@@ -14,7 +14,8 @@ App.login = function () {
     entryTestMasterLogin,
     btnTestMasterLogin,
     btnObjectLogin,
-    btnTutorial;
+    btnTutorial,
+    nickNameObject;
 
     function init() {
       initSpaces();
@@ -29,7 +30,6 @@ App.login = function () {
       adminMain = document.getElementById('content_testMasterMain');
       objectMain = document.getElementById('content_objectMain');
       tutorial = document.getElementById('content_tutorial');
-      icnLogout = document.getElementById('logout-sign');
       btnTestMasterLogin = document.getElementById('btn_testMasterLogin');
       btnTestMasterLogin.addEventListener("click", showTestmasterLoginDialogue);
       btnObjectLogin = document.getElementById('btn_objectLogin');
@@ -46,7 +46,6 @@ App.login = function () {
       adminMain.style.display = "none";
       objectMain.style.display = "none";
       tutorial.style.display = "none";
-      icnLogout.style.display = "none";
     }
 
     function showObjectLoginDialogue(){
@@ -56,9 +55,6 @@ App.login = function () {
       adminMain.style.display = "none";
       objectMain.style.display = "none";
       tutorial.style.display = "none";
-      icnLogout.style.display = "none";
-
-
     }
 
     function showTutorial(){
@@ -75,29 +71,47 @@ App.login = function () {
 
     function handleLoginRequests(){
       btnTestMasterLogin = document.getElementById('btn_loginTestmaster');
-      entryTestMasterLogin = document.getElementById("password_textmaster");
+      btnTestMasterLogin.addEventListener("click", processTestmasterLogin);
       var hint1 = document.getElementById("passwordIncorrectDialogue");
       hint1.style.display = "none";
       var hint2 = document.getElementById("noNickNameEntered");
       hint2.style.display = "none";
-      btnTestMasterLogin.addEventListener("click", function(){
-          processTestmasterLogin();
-      });
       window.onkeyup = function(e) {
          var key = e.keyCode;
          if(key == "13"){
            processTestmasterLogin();
          }
       }
+      nickNameObject = document.getElementById("objectNickname");
+      var btnObjectStart = document.getElementById("btnObjectStart");
+      btnObjectStart.addEventListener("click", function (){
+        showObjectMain();
+        });
+      }
+
+
+
+    function showObjectMain(){
+      var hint = document.getElementById("hint3");
+        if(nickNameObject.value != ""){
+          hint.style.display="none";
+          objectMain.style.display="block";
+          loginObjectContent.style.display="none";
+          var objectContent = new App.objectScreen();
+          objectContent.init(nickNameObject.value);
+        }
+        else{
+          hint.style.display="block";
+        }
+
 
     }
 
 
 
 
-
-
     function processTestmasterLogin(){
+      entryTestMasterLogin = document.getElementById("password_textmaster");
       var nickname = "";
       var hint1 = document.getElementById("passwordIncorrectDialogue");
       var hint2 = document.getElementById("noNickNameEntered");
@@ -113,7 +127,8 @@ App.login = function () {
         if(loginPassword == userEntry){
           nickname = nicknameForm.value;
           if(nickname != ""){
-            console.log(nickname);
+            var chatUI = new App.chatUI();
+            chatUI.init(nickname);
             adminMain.style.display = "block";
             startContent.style.display = "none";
             loginAdminContent.style.display = "none";
@@ -136,6 +151,59 @@ App.login = function () {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     function loadJSON(callback) {
         var req = new XMLHttpRequest();
         //req.overrideMimeType("application/json");
@@ -148,10 +216,6 @@ App.login = function () {
         };
         req.send(null);
       }
-
-
-
-
 
     that.handleLoginRequests = handleLoginRequests;
     that.initSpaces = initSpaces;

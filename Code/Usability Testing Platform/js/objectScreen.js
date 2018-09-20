@@ -3,19 +3,22 @@ App.objectScreen = function () {
 
   "use strict";
   var that = {},
-  chatUI;
+  taskContainer,
+  singleTask,
+  btnStartTask,
+  btnStopTask;
 
 
-  function init(){
-      var mainContent = document.getElementById("content_testMasterMain");
-      mainContent.style.display="block";
-      var testMasterLeftContent = document.getElementById("testMasterLeftContent");
-      testMasterLeftContent.display.style="none";
-      var testManager = document.getElementById("testmanagerStart");
-      testManager.display.style="none";
+  function init(nameObject){
+      var chatUI = new App.chatUI();
+      chatUI.init(nameObject);
+      taskContainer = document.getElementById("taskContainer");
+      singleTask = document.getElementById("singleTask");
+      btnStartTask = document.getElementById("startTask");
+      btnStopTask = document.getElementById("stopTask");
   }
 
-
+  
 
 
 

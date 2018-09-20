@@ -22,9 +22,6 @@
  <nav class="navbar navbar-inverse">
    <div class="container-fluid">
      <div class="navbar-header">
-       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-         <span class="icon-bar">Logout</span>
-       </button>
        <p class="header">Regensburger Usability Testing Plattform</p>
      </div>
      <div class="collapse navbar-collapse">
@@ -101,9 +98,6 @@
       </div>
       </div>
     </div>
-
-
-
 
 
       <div class="col-md-4">
@@ -196,9 +190,11 @@
   <div class="container-fluid text-center">
     <div class="row content">
       <div class="col-sm-8 text-left">
-        <h1>Welcome</h1>
-        <p>TestpersonLogin.</p>
-        <hr>
+          <h3>Willkommen!</h3>
+          <h4>Geben Sie Ihren Namen ein</h4>
+          <h5 id="hint3" style="color: red; display: none">Bitte geben Sie einen Namen ein!</h5>
+            <input class="form-control textinput" id="objectNickname" placeholder="Name">
+          <button class="defaultbutton" id="btnObjectStart">Los Geht's</button>
       </div>
  </div>
 </div>
@@ -207,26 +203,53 @@
 
 
 <div id=content_objectMain>
-  <div class="container-fluid text-center">
+  <div class="container-fluid text-left">
     <div class="row content">
-      <div class="col-sm-8 text-left">
-        <h1>Welcome</h1>
-        <p>TestpersonMain.</p>
-        <hr>
+      <div class="container" style="margin:10px; width:100%;">
+        <div class="well">
+            <div id="testStart">
+              <h3>Deine Tasks:</h3>
+              <div class="well" id="taskContainer">
+                <div id="singleTask"></div>
 
+              </div>
+                <button class="secondarybutton" id="startTask">Task Starten</button>
+                <button class="secondarybutton" id="stopTask">Fertig!</button>
+            </div>
+        </div>
       </div>
- </div>
+    <div id="chatContainer" class="container" style="margin:10px; width:100%;">
+      <div class="well">
+        <p class="name-area"></p>
+          <div class="chat-wrap">
+            <div class="chat-area"></div>
+              <form class="send-message-area">
+                  <p>Your message: </p>
+                  <textarea class="sendie" maxlength = '100'></textarea>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
+
+
+
+
+
+
+
+
+
 
 <div id=content_tutorial>
   <div class="container-fluid text-center">
     <div class="row content">
       <div class="col-sm-8 text-left">
         <h1>Welcome</h1>
-        <p>Tutorial.</p>
+        <p>Tutorial</p>
         <hr>
-
       </div>
  </div>
 </div>
@@ -244,19 +267,14 @@
       var adminMain = document.getElementById('content_testMasterMain');
       var objectMain = document.getElementById('content_objectMain');
       var tutorial = document.getElementById('content_tutorial');
-      var icnLogout = document.getElementById('logout-sign');
-
          function showMainContent() {
-           startContent.style.display = "none";
+           startContent.style.display = "block";
            loginObjectContent.style.display = "none";
            loginAdminContent.style.display = "none";
-           adminMain.style.display = "block";
+           adminMain.style.display = "none";
            objectMain.style.display = "none";
            tutorial.style.display = "none";
-           icnLogout.style.display = "none";
-
          }
-
    </script>
 
 
@@ -271,6 +289,7 @@
  <script src="js/chatUI.js"></script>
  <script src="js/createNewTest.js"></script>
  <script src="js/loadExistingTest.js"></script>
+ <script src="js/objectScreen.js"></script>
 
 
  <script>
