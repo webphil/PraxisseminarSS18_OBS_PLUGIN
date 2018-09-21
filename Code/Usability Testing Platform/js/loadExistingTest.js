@@ -50,11 +50,26 @@ App.loadExistingTest = function () {
         var newCellNumber = newRow.insertCell(0)
         var newCellTitle  = newRow.insertCell(1);
         var newCellDate = newRow.insertCell(2);
+        var newCellDeleteTest = newRow.insertCell(3);
+        var deleteBtn = document.createElement('a');
+        deleteBtn.innerHTML = "x";
+        deleteBtn.classList.add("button3");
+        deleteBtn.addEventListener("click", removeItemFromList);
         newCellNumber.innerHTML = ""+ (i+1);
         newCellTitle.innerHTML = tests.title;
         newCellDate.innerHTML = tests.date;
+        newCellDeleteTest.appendChild(deleteBtn);
       }
     }
+
+
+    function removeItemFromList(){
+      console.log(this.parentElement.parentElement);
+    }
+
+
+
+
 
 
     function displayTest(selectedTest){
