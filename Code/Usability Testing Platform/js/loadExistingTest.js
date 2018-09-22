@@ -36,7 +36,7 @@ App.loadExistingTest = function () {
         dataType: "json",
         success: function(data) {
           fillTable(data);
-          handleExistingTestUserInteractions();
+          //handleExistingTestUserInteractions();
         }
       });
     }
@@ -64,16 +64,29 @@ App.loadExistingTest = function () {
 
 
     function removeItemFromList(){
-      console.log(this.parentElement.parentElement);
+      var testID = this.parentElement.parentElement.children[0].innerHTML;
+      deleteRow(testID);
+      loadExistingTestsFromDatabase();
     }
 
+    function deleteRow(ID){
 
+      console.log(ID);
 
+      $.ajax({
+        type: "POST",
+        url: '../php/deleteTest.php',
+        data: {deleteTestID: ID},
+        dataType: "json",
+        success: function(data) {
+          console.log("Done");
+        }
+      });
 
-
+    }
 
     function displayTest(selectedTest){
-      console.log(selectedTest);
+      //console.log(selectedTest);
     }
 
 
