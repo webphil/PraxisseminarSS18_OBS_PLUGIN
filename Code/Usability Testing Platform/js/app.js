@@ -5,23 +5,19 @@ App.OBSTest = (function () {
     var that = {},
     login,
     video,
-    testmanager,
     annotations,
     completion,
-    chatUI;
+    chatUI,
+    nickname;
 
 
     function init() {
       login = new App.login();
       login.init();
-      testmanager = new App.testmanager();
-      testmanager.init();
       video = new App.video();
       video.init();
       annotations = new App.annotations();
       annotations.init();
-      var chatUI = new App.chatUI();
-      chatUI.init();
       completion = new App.completion();
       completion.init();
     }

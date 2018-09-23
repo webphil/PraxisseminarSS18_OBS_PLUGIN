@@ -17,11 +17,14 @@ App.login = function () {
     nickNameObject,
     chat,
     rightContent,
+    nickname,
     hint2;
 
     function init() {
       initSpaces();
       handleLoginRequests();
+      console.log(nickname);
+
     }
 
 
@@ -86,7 +89,6 @@ App.login = function () {
            processTestmasterLogin();
          }
       }
-      nickNameObject = document.getElementById("objectNickname");
       var btnObjectStart = document.getElementById("btnObjectStart");
       btnObjectStart.addEventListener("click", function (){
         showObjectMain();
@@ -96,14 +98,17 @@ App.login = function () {
 
 
     function showObjectMain(){
+      nickname = document.getElementById("objectNickname").value;
       var hint = document.getElementById("hint3");
-        if(nickNameObject.value != ""){
+        if(nickname.value != ""){
+          var chatUI = new App.chatUI();
+          chatUI.init(nickname);
           hint.style.display="none";
           objectMain.style.display="block";
           startContent.style.display="none";
           rightContent.style.display="block";
           var objectContent = new App.objectScreen();
-          objectContent.init(nickNameObject.value);
+          objectContent.init(nickname.value);
         }
         else{
           hint.style.display="block";
@@ -119,6 +124,8 @@ App.login = function () {
             loginAdminContent.style.display = "none";
             loginObjectContent.style.display = "none";
             tutorial.style.display = "none";
+            var chatUI = new App.chatUI();
+            chatUI.init(nickname);
           }
           else{
             hint2.style.display = "block";
