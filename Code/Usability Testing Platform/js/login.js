@@ -9,14 +9,15 @@ App.login = function () {
     adminMain,
     objectMain,
     tutorial,
-    filepath = 'src/passwords.json',
     btnTestMasterLogin,
     entryTestMasterLogin,
     btnTestMasterLogin,
     btnObjectLogin,
     btnTutorial,
     nickNameObject,
-    chat;
+    chat,
+    rightContent,
+    hint2;
 
     function init() {
       initSpaces();
@@ -39,6 +40,8 @@ App.login = function () {
       btnTutorial.addEventListener("click", showTutorial);
       chat = document.getElementById("chatContainer");
       chat.style.display="none";
+      rightContent = document.getElementById("container-right");
+      rightContent.style.display="none";
 
     }
 
@@ -53,7 +56,7 @@ App.login = function () {
     }
 
     function showObjectLoginDialogue(){
-      startContent.style.display = "none";
+      startContent.style.display = "block";
       loginObjectContent.style.display = "block";
       loginAdminContent.style.display = "none";
       adminMain.style.display = "none";
@@ -75,9 +78,7 @@ App.login = function () {
     function handleLoginRequests(){
       btnTestMasterLogin = document.getElementById('btn_loginTestmaster');
       btnTestMasterLogin.addEventListener("click", processTestmasterLogin);
-      var hint1 = document.getElementById("passwordIncorrectDialogue");
-      hint1.style.display = "none";
-      var hint2 = document.getElementById("noNickNameEntered");
+      hint2 = document.getElementById("noNickNameEntered");
       hint2.style.display = "none";
       window.onkeyup = function(e) {
          var key = e.keyCode;
@@ -99,7 +100,8 @@ App.login = function () {
         if(nickNameObject.value != ""){
           hint.style.display="none";
           objectMain.style.display="block";
-          loginObjectContent.style.display="none";
+          startContent.style.display="none";
+          rightContent.style.display="block";
           var objectContent = new App.objectScreen();
           objectContent.init(nickNameObject.value);
         }
@@ -109,41 +111,19 @@ App.login = function () {
     }
 
     function processTestmasterLogin(){
-      entryTestMasterLogin = document.getElementById("password_textmaster");
-      var nickname = "";
-      var hint1 = document.getElementById("passwordIncorrectDialogue");
-      var hint2 = document.getElementById("noNickNameEntered");
-      var nicknameForm = document.getElementById("nickname_textmaster");
-      var loginPassword;
-      var userEntry = "";
-      loadJSON(function(response) {
-        var pwJSON = JSON.parse(response);
-        loginPassword = pwJSON.testmaster;
-        if(entryTestMasterLogin != ''){
-          userEntry = entryTestMasterLogin.value;
-        }
-        if(loginPassword == userEntry){
-          nickname = nicknameForm.value;
-          if(nickname != ""){
-            var chat = document.getElementById("chatContainer");
-            chat.style.display="block";
-            adminMain.style.display = "block";
+      var nickname = document.getElementById("nickname_textmaster").value;
+      if(nickname != ""){
+            var testMasterScreen = new App.testMasterScreen();
+            testMasterScreen.init();
             startContent.style.display = "none";
             loginAdminContent.style.display = "none";
             loginObjectContent.style.display = "none";
-            objectMain.style.display = "none";
             tutorial.style.display = "none";
           }
           else{
             hint2.style.display = "block";
           }
 
-        }
-        else{
-          hint1.style.display = "block";
-
-       }
-      });
     }
 
 
@@ -156,21 +136,6 @@ App.login = function () {
 
 
 
-
-
-
-    function loadJSON(callback) {
-        var req = new XMLHttpRequest();
-        //req.overrideMimeType("application/json");
-        req.open('GET', filepath, true); // Replace 'my_data' with the path to your file
-        req.onreadystatechange = function () {
-          if (req.readyState == 4 && req.status == "200") {
-            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-            callback(req.responseText);
-          }
-        };
-        req.send(null);
-      }
 
     that.handleLoginRequests = handleLoginRequests;
     that.initSpaces = initSpaces;
