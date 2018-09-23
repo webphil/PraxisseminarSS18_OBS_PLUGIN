@@ -20,6 +20,10 @@ App.OBSTest = (function () {
       video.init();
       annotations = new App.annotations();
       annotations.init();
+
+      var chatUI = new App.chatUI();
+      chatUI.init();
+
       completition = new App.completition();
       completition.init();
 

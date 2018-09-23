@@ -10,15 +10,15 @@ App.objectScreen = function () {
 
 
   function init(nameObject){
-      var chatUI = new App.chatUI();
-      chatUI.init(nameObject);
+      var chat = document.getElementById("chatContainer");
+      chat.style.display="block";
       taskContainer = document.getElementById("taskContainer");
       singleTask = document.getElementById("singleTask");
       btnStartTask = document.getElementById("startTask");
       btnStopTask = document.getElementById("stopTask");
   }
 
-  
+
 
 
 

@@ -9,10 +9,10 @@ App.chatUI = function () {
 
 
 
-  function init(nickname){
-    var name=nickname;
+  function init(){
+    var name="nickname";
     var chat =  new Chat();
-    window.setInterval(chat.update, 10000);
+    window.setInterval(chat.update, 1000);
 
       // var name = prompt("Enter your chat name:", "Guest");
       // default name is 'Guest'
