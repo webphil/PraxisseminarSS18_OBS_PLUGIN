@@ -1,5 +1,5 @@
 var App = App || {};
-App.completition = function () {
+App.completion = function () {
 
 	"use strict";
     var that = {},
@@ -31,8 +31,8 @@ App.completition = function () {
 
     	$.ajax({
         type: "POST",
-        url: '../php/completition.php',
-        data: {completitionTime: difference},
+        url: '../php/completion.php',
+        data: {completionTime: difference},
         dataType: "json",
         success: function(data) {
           console.log("Done");

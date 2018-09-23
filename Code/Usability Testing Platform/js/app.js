@@ -7,7 +7,7 @@ App.OBSTest = (function () {
     video,
     testmanager,
     annotations,
-    completition,
+    completion,
     chatUI;
 
 
@@ -24,8 +24,8 @@ App.OBSTest = (function () {
       var chatUI = new App.chatUI();
       chatUI.init();
 
-      completition = new App.completition();
-      completition.init();
+      completion = new App.completion();
+      completion.init();
 
     }
 
