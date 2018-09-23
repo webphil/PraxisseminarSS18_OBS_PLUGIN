@@ -87,7 +87,6 @@ App.createNewTest = function () {
 
 
   function processResultJson(resultJson){
-
     $.ajax({
         type: "POST",
         url: '/php/mySQL_connect.php',

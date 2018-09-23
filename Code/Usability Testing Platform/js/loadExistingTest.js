@@ -92,7 +92,7 @@ App.loadExistingTest = function () {
 
     function processTasks(selectedTest){
       var existingTestDialogue = document.getElementById("existingTestDialogue");
-      var showTasks = document.getElementById("taskContainerTestMaster");
+      var showTasks = document.getElementById("taskContainer");
       existingTestDialogue.style.display = "none";
       showTasks.style.display="block";
       var currentTaskOnDisplay=document.getElementById("singleTaskTestMaster");
@@ -100,7 +100,7 @@ App.loadExistingTest = function () {
       headlineTest.innerHTML=selectedTest.title;
       var btnNextTask = document.getElementById("nextTask");
       btnNextTask.innerHTML="Weiter";
-      var counter = 1;
+      var counter = 0;
       btnNextTask.addEventListener("click", function(){
         counter += 1;
         if(counter <= Object.keys(selectedTest.test).length){
@@ -113,6 +113,7 @@ App.loadExistingTest = function () {
           currentTaskOnDisplay.innerHTML = "";
         }
       });
+
     }
 
 

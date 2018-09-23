@@ -34,56 +34,49 @@
 
 
 
-<div id=content_main>
-  <div class="container-fluid text-left">
+  <div id=content_main>
+    <div class="well" style="margin: 40px;">
       <h1>Welcome</h1>
       <p>Beschreibung.</p>
       <hr>
-    <div class="row">
-      <div class="col-md-6">
         <ul class="buttonlist">
           <li><button class="defaultbutton" id="btn_testMasterLogin"><span class="glyphicon glyphicon-log-in"></span> Testleiter Login</a></button></li>
           <li><button class="defaultbutton" id="btn_objectLogin"><span class="glyphicon glyphicon-log-in"></span> Testperson Login</a></button></li>
           <li><button class="defaultbutton" id="btn_tutorial"><span class="glyphicon glyphicon-education"></span> Tutorial</a></button></li>
       </ul>
-      </div>
-      <div class="col-md-6">
-        <div id="content_testMasterLogin">
-          <div class="container-fluid">
-            <h4>Geben Sie einen Nickname an</h4>
-          </div>
-            <input class="form-control textinput" type="nickname" id="nickname_textmaster" placeholder="Nickname" type="text" required>
-            <div class="container-fluid">
-              <h4>Geben Sie das Passwort für den Testleiter ein. Es ist die Zahl 1.</h4>
-            </div>
-
-                <div class="col-md-4 form-group">
-                  <input class="form-control textinput" type="password" id="password_textmaster" name="name" placeholder="Passwort" type="text" required>
-                </div>
-                <div class="row">
-                <div class="col-md-4 form-group">
-                  <button class="secondarybutton" type="submit" id="btn_loginTestmaster"></span>Login</button>
-                </div>
+      <div id="content_testMasterLogin">
+        <h4 style="padding: 10px;">Geben Sie einen Nickname an</h4>
+        <input class="form-control textinput" type="nickname" id="nickname_textmaster" placeholder="Nickname" type="text" required>
+            <div class="row" style="padding: 10px;">
+              <div class="col-md-4 form-group">
+                <button class="secondarybutton" type="submit" id="btn_loginTestmaster"></span>Login</button>
               </div>
-              <div id="passwordIncorrectDialogue" type="text">Falsches Passwort :(</div>
-              <div id="noNickNameEntered" type="text">Bitte geben Sie einen Nickname ein.</div>
+            </div>
+            <div id="noNickNameEntered" type="text">Bitte geben Sie einen Nickname ein.</div>
       </div>
-      </div>
+      <div id=content_objectLogin>
+          <h4 style="padding: 10px;">Geben Sie Ihren Namen ein</h4>
+          <input class="form-control textinput" id="objectNickname" placeholder="Name">
+          <div class="row" style="padding: 10px;">
+            <div class="col-md-4 form-group">
+              <button class="defaultbutton" id="btnObjectStart">Los Geht's</button>
+            </div>
+          </div>
+          <div id="hint3" type="text" style="display: none">Bitte geben Sie einen Namen ein!</div>
     </div>
   </div>
 </div>
 
 
 
-<div id=content_testMasterMain>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-8">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8" id="container-left">
+      <div id=content_testMasterMain>
         <div class="video-container">
             <div id="player1" class="flowplayer" data-aspect-ratio="4:3"></div>
           </div>
-
-      <div class="well">
+        <div class="well">
         <h4>Annotations</h4>
           <div class="form-group">
             <div class="row">
@@ -95,144 +88,102 @@
                 </div>
           </div>
 
-      </div>
+      </div></div>
       </div>
     </div>
 
 
-      <div class="col-md-4">
-        <div class="container" style="margin:10px; width:100%;">
+
+    <div class="col-md-4" id="container-right">
+      <div class="well">
+        <div id="testmanagerStart" class="well" style="display: none">
+            <h3>Testmanager</h3>
+              <div id="testmanager">
+                <div><a class="button3" id="choseExistingTestBtn">Einen bestehenden Test wählen<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
+                <div><a class="button3" id="createNewTestBtn">Einen neuen Test anlegen<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
+                <div><a class="button3" id="startFreeTestBtn">Einen freien Test starten<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
+              </div>
+        </div>
+        <div id="existingTestDialogue" class="well" style="display: none;">
+          <h4>Wählen Sie einen Test</h4>
+          <div class="table-responsive" style="height: 180px; overflow-y: auto;">
+            <table class="table table-hover" id="tableTests" style="cursor: pointer;">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Datum</th>
+                <th scope = "col"></th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            </table>
+          </div>
+          <div class="btnBackTestmanager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px;"></div>
+        </div>
+        <div id="newTestDialogue" class="well" style="display: none;">
+            <div id="newTestDialogueStart">
+              <h4>Neuer Test</h4>
+              <h5>Geben Sie einen Titel für den Test ein: </h5>
+              <h6 id="notificationEnterTitle" style="color: red; display: none;">Sie müssen einen Titel angeben</h6>
+              <input type="text" class="form-control" id="titleNewTest" placeholder="Titel"></input>
+              <h4>Tasks hinzufügen: </h4>
+              <ol id="addedTasks" style="padding:10px;"></ol>
+              <textarea id="taskInput" maxlength='100' style="width: 100%;"></textarea>
+              <button class="roundButton" id="btnAddSingleTask" style="float: right"><span class="glyphicon glyphicon-plus" style="color: white; padding: 2px;"></button>
+              <div style="padding: 30px 0 0 0">
+                <div style="float: right; padding: 0 0 300px 0"><a class="button3" id="saveNewTest">Test Speichern<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
+                <div style="float: left"><a class="button3" id="btnBackToTestManager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px; margin-right: 0;"></a></div>
+              </div>
+            </div>
+          </div>
+        <div id="freeTestDialogue" class="well" style="display: none;">
+            <h3>freien Test starten</h3>
+            </br>
+            Einen freien Test moderieren Sie über den Chat. Stellen Sie hier der Testperson Ihre Aufgaben.
+            <div class="btnBackTestmanager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px;"></div>
+          </div>
+
+        <div id="taskContainer" style="display: none">
           <div class="well">
-              <div id="testmanagerStart">
-                <h3>Testmanager</h3>
-                  <div id="testmanager">
-                    <div><a class="button3" id="choseExistingTestBtn">Einen bestehenden Test wählen<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
-                    <div><a class="button3" id="createNewTestBtn">Einen neuen Test anlegen<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
-                    <div><a class="button3" id="startFreeTestBtn">Einen freien Test starten<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
-                  </div>
-            </div>
+            <h4>Tasks: </h4>
+              <h5 id="testTitleTestMaster"></h5>
+              <div id="singleTaskTestMaster"></div>
 
-            <div id="existingTestDialogue" style="display: none;">
-              <h4>Wählen Sie einen Test</h4>
-              <div class="table-responsive" style="height: 180px; overflow-y: auto;">
-              <table class="table table-hover" id="tableTests" style="cursor: pointer;">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Datum</th>
-                  <th scope = "col"></th>
-                </tr>
-              </thead>
-              <tbody>
-              </tbody>
-            </table></div>
-              <div class="btnBackTestmanager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px;"></div>
-            </div>
-
-
-
-            <div id="taskContainerTestMaster">
-                <div class="well">
-                    <h5 id="testTitleTestMaster"></h5>
-                    <div id="singleTaskTestMaster"></div>
-                    <button class="secondarybutton" id="nextTask">Weiter</button>
-                </div>
-            </div>
-
-
-            <div id="newTestDialogue" style="display: none;">
-              <div id="newTestDialogueStart">
-                <h4>Neuer Test</h4>
-                <h5>Geben Sie einen Titel für den Test ein: </h5>
-                <h6 id="notificationEnterTitle" style="color: red; display: none;">Sie müssen einen Titel angeben</h6>
-                <input type="text" class="form-control" id="titleNewTest" placeholder="Titel"></input>
-                <h4>Tasks hinzufügen: </h4>
-                <ol id="addedTasks" style="padding:10px;"></ol>
-                <textarea id="taskInput" maxlength='100' style="width: 100%;"></textarea>
-                <button class="roundButton" id="btnAddSingleTask" style="float: right"><span class="glyphicon glyphicon-plus" style="color: white; padding: 2px;"></button>
-                <div style="padding: 30px 0 0 0">
-                  <div style="float: right; padding: 0 0 300px 0"><a class="button3" id="saveNewTest">Test Speichern<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
-                  <div style="float: left"><a class="button3" id="btnBackToTestManager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px; margin-right: 0;"></a></div>
-                </div>
-              </div>
-            </div>
-
-
-
-
-
-
-
-
-            <div id="freeTestDialogue" style="display: none;">
-              <h3>freien Test starten</h3>
-              </br>
-              Einen freien Test moderieren Sie über den Chat. Stellen Sie hier der Testperson Ihre Aufgaben.
-              <div class="btnBackTestmanager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px;"></div>
-            </div>
-        </div>
-      </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div id=content_objectLogin>
-  <div class="container-fluid text-center">
-    <div class="row content">
-      <div class="col-sm-8 text-left">
-          <h3>Willkommen!</h3>
-          <h4>Geben Sie Ihren Namen ein</h4>
-          <h5 id="hint3" style="color: red; display: none">Bitte geben Sie einen Namen ein!</h5>
-            <input class="form-control textinput" id="objectNickname" placeholder="Name">
-          <button class="defaultbutton" id="btnObjectStart">Los Geht's</button>
-      </div>
- </div>
-</div>
-</div>
-
-
-
-<div id=content_objectMain>
-  <div class="container-fluid text-left">
-    <div class="row content">
-      <div class="container" style="margin:10px; width:100%;">
-        <div class="well">
+          <hr>
+          <div id="buttonNextTaskTestmaster" style="display: none">
+              <button class="secondarybutton" id="nextTask">Weiter</button>
+          </div>
+          <div id=content_objectMain>
             <div id="testStart">
-              <h3>Deine Tasks:</h3>
-              <div class="well" id="taskContainer">
-                <h5 id="testTitle"></h5>
-                <div id="singleTask"></div>
-              </div>
                 <button class="secondarybutton" id="startTask">Task Starten</button>
-                <button class="secondarybutton" id="stopTask">Fertig!</button>
+                <button class="secondarybutton" style="float: right" id="stopTask">Fertig!</button>
             </div>
+          </div>
         </div>
       </div>
 
+
+    <div class="well" >
+      <div id="chatContainer" class="container" style="width:100%;">
+      <p class="name-area"></p>
+        <div class="chat-wrap">
+          <div class="well" style="height: 160px; overflow-y:scroll;">
+            <div class="chat-area"></div>
+          </div>
+            <form class="send-message-area">
+                <p>Your message: </p>
+                <textarea class="sendie" maxlength = '100'></textarea>
+            </form>
+
+        </div>
+      </div>
     </div>
-  </div>
+      </div>
+    </div>
 </div>
-
-
-
-<div id="chatContainer" class="container" style="margin:10px; width:100%;">
-  <div class="well" >
-    <p class="name-area"></p>
-      <div class="chat-wrap">
-        <div class="well" style="height: 160px; overflow-y:scroll;">
-          <div class="chat-area"></div>
-        </div>
-          <form class="send-message-area">
-              <p>Your message: </p>
-              <textarea class="sendie" maxlength = '100'></textarea>
-          </form>
-
-      </div>
-    </div>
-  </div>
+</div>
 
 
 
@@ -269,13 +220,14 @@
            objectMain.style.display = "none";
            tutorial.style.display = "none";
          }
-   </script>
+</script>
 
 
 
 
 
  <script src="js/app.js"></script>
+ <script src="js/testMasterScreen.js"></script>
  <script src="js/login.js"></script>
  <script src="js/testmanager.js"></script>
  <script src="js/video.js"></script>
