@@ -22,8 +22,8 @@ App.OBSTest = (function () {
       annotations.init();
       var chatUI = new App.chatUI();
       chatUI.init();
-        completion = new App.completition();
-        completion.init();
+      completion = new App.completion();
+      completion.init();
     }
 
       that.init = init;

@@ -5,13 +5,16 @@ App.annotations = function () {
     var that = {},
     singleAnnotation,
     timestamp,
+    btnDownload,
     btnAddAnnotation;
 
 
     function init(){
     singleAnnotation = document.getElementById("annotation");
+    btnDownload = document.getElementById("download");
     btnAddAnnotation = document.getElementById("btnSubmitAnnotation");
     btnAddAnnotation.addEventListener("click", handleUserInput);
+    btnDownload.addEventListener("click", handleUserInputDownload);
     }
 
 
@@ -19,9 +22,14 @@ App.annotations = function () {
       writeAnnotationToFile();
     }
 
+    function handleUserInputDownload(){
+      console.log("Geht");
+      download();
+    }
 
-
-//todo
+    function download(){
+      location.href = "http://167.99.248.108/php/downloadFile.php";
+    }
 
     function writeAnnotationToFile(){
 
