@@ -6,13 +6,10 @@ App.objectScreen = function () {
   taskContainer,
   singleTask,
   btnStartTask,
-  btnStopTask,
-  completition;
+  btnStopTask;
 
 
   function init(nameObject){
-      completition = new App.completition();
-      completition.init();
       var chat = document.getElementById("chatContainer");
       chat.style.display="block";
       taskContainer = document.getElementById("taskContainer");
