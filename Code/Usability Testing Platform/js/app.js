@@ -7,6 +7,7 @@ App.OBSTest = (function () {
     video,
     testmanager,
     annotations,
+    completition,
     chatUI;
 
 
@@ -16,9 +17,11 @@ App.OBSTest = (function () {
       testmanager = new App.testmanager();
       testmanager.init();
       video = new App.video();
-      video.init(),
+      video.init();
       annotations = new App.annotations();
       annotations.init();
+      completition = new App.completition();
+      completition.init();
 
     }
 
