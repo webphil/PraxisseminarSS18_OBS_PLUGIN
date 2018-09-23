@@ -15,7 +15,8 @@ App.login = function () {
     btnTestMasterLogin,
     btnObjectLogin,
     btnTutorial,
-    nickNameObject;
+    nickNameObject,
+    chat;
 
     function init() {
       initSpaces();
@@ -36,6 +37,9 @@ App.login = function () {
       btnObjectLogin.addEventListener("click", showObjectLoginDialogue);
       btnTutorial = document.getElementById('btn_tutorial');
       btnTutorial.addEventListener("click", showTutorial);
+      chat = document.getElementById("chatContainer");
+      chat.style.display="none";
+
     }
 
 
@@ -64,7 +68,6 @@ App.login = function () {
       adminMain.style.display = "none";
       objectMain.style.display = "none";
       tutorial.style.display = "block";
-
     }
 
 
@@ -103,12 +106,7 @@ App.login = function () {
         else{
           hint.style.display="block";
         }
-
-
     }
-
-
-
 
     function processTestmasterLogin(){
       entryTestMasterLogin = document.getElementById("password_textmaster");
@@ -127,8 +125,8 @@ App.login = function () {
         if(loginPassword == userEntry){
           nickname = nicknameForm.value;
           if(nickname != ""){
-            var chatUI = new App.chatUI();
-            chatUI.init(nickname);
+            var chat = document.getElementById("chatContainer");
+            chat.style.display="block";
             adminMain.style.display = "block";
             startContent.style.display = "none";
             loginAdminContent.style.display = "none";
@@ -147,49 +145,6 @@ App.login = function () {
        }
       });
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
