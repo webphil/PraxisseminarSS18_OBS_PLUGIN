@@ -95,18 +95,22 @@ App.loadExistingTest = function () {
       var showTasks = document.getElementById("taskContainer");
       existingTestDialogue.style.display = "none";
       showTasks.style.display="block";
-      var currentTaskOnDisplay=document.getElementById("singleTaskTestMaster");
+      var currentTaskOnDisplay=document.getElementById("task");
       var headlineTest = document.getElementById("testTitleTestMaster");
       headlineTest.innerHTML=selectedTest.title;
       var btnNextTask = document.getElementById("nextTask");
       btnNextTask.innerHTML="Weiter";
       var counter = 0;
+
       btnNextTask.addEventListener("click", function(){
         counter += 1;
         if(counter <= Object.keys(selectedTest.test).length){
           var myTask = "task"+(counter);
+          var task = selectedTest.test[myTask];
           currentTaskOnDisplay.innerHTML = "";
-          currentTaskOnDisplay.innerHTML = selectedTest.test[myTask];
+          currentTaskOnDisplay.innerHTML = task;
+          console.log(task);
+
         }
         else{
           btnNextTask.innerHTML="Test beenden";

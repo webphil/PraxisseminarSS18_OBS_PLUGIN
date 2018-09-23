@@ -9,10 +9,13 @@ App.testMasterScreen = function () {
     leftContent,
     testManager,
     taskContainer,
+    testmanager,
     btnNextTask;
 
 
     function init(){
+      testmanager = new App.testmanager();
+      testmanager.init();
       var chat = document.getElementById("chatContainer");
       chat.style.display="block";
       rightContent = document.getElementById("container-right");
@@ -25,12 +28,15 @@ App.testMasterScreen = function () {
       taskContainer.style.display="block";
       btnNextTask=document.getElementById("buttonNextTaskTestmaster");
       btnNextTask.style.display="block";
-
+      handleUserInteractions();
 
 
     }
 
+    function handleUserInteractions(){
 
+
+    }
 
 
 

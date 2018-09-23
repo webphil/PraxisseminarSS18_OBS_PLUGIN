@@ -9,15 +9,15 @@ App.chatUI = function () {
 
 
 
-  function init(){
-    var name="nickname";
+  function init(nickname){
+    var name=nickname;
     var chat =  new Chat();
     window.setInterval(chat.update, 1000);
 
       // var name = prompt("Enter your chat name:", "Guest");
       // default name is 'Guest'
       if (!name || name === ' ') {
-        name = "Guest";
+        name = "Guest  ";
       }
         // strip tags
         name = name.replace(/(<([^>]+)>)/ig,"");
@@ -26,39 +26,39 @@ App.chatUI = function () {
 
 
 
-$(function() {
-   chat.getState();
-   // watch textarea for key presses
-   $(".sendie").keydown(function(e) {
-     var key = e.keyCode;
-       //all keys including return.
-       if (key >= 33) {
-           var maxLength = $(this).attr("maxlength");
-           var length = this.value.length;
-           // don't allow new content if length is maxed out
-           if (length >= maxLength) {
-               event.preventDefault();
-           }
-       }
-    });
+      $(function() {
+         chat.getState();
+         // watch textarea for key presses
+         $(".sendie").keydown(function(e) {
+           var key = e.keyCode;
+             //all keys including return.
+             if (key >= 33) {
+                 var maxLength = $(this).attr("maxlength");
+                 var length = this.value.length;
+                 // don't allow new content if length is maxed out
+                 if (length >= maxLength) {
+                     event.preventDefault();
+                 }
+             }
+          });
 
 
-   // watch textarea for release of key press
-   $('.sendie').keyup(function(e) {
-      if (e.keyCode == 13) {
-            var text = $(this).val();
-            var maxLength = $(this).attr("maxlength");
-            var length = text.length;
-            // send
-            if (length <= maxLength + 1) {
-              chat.send(text, name);
-              $(this).val("");
-            } else {
-              $(this).val(text.substring(0, maxLength));
+         // watch textarea for release of key press
+         $('.sendie').keyup(function(e) {
+            if (e.keyCode == 13) {
+                  var text = $(this).val();
+                  var maxLength = $(this).attr("maxlength");
+                  var length = text.length;
+                  // send
+                  if (length <= maxLength + 1) {
+                    chat.send(text, name);
+                    $(this).val("");
+                  } else {
+                    $(this).val(text.substring(0, maxLength));
+                  }
             }
-      }
-   });
-});
+         });
+      });
 
   }
 

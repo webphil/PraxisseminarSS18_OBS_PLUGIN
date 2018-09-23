@@ -22,6 +22,12 @@ App.objectScreen = function () {
   }
 
 
+  function updateTasks(){
+    taskContainer = document.getElementById("taskContainer");
+    taskContainer.style.display="block";
+  }
+
+
 
 
 
