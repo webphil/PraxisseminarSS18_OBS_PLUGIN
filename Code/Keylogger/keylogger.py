@@ -4,16 +4,23 @@ import pyHook, pythoncom, sys, logging
 
 
 sourceName = ""
+hooks_manager = pyHook.HookManager()
 
 
 def keylogger_pressed(props, prop):
 
-    while 1:
-      """if(obs.obs_frontend_streaming_active() == True):"""
-      hooks_manager = pyHook.HookManager()
-      hooks_manager.KeyDown = onButtonPress
-      hooks_manager.HookKeyboard()
-      pythoncom.PumpMessages()
+    global hooks_manager
+
+    hooks_manager.KeyDown = onButtonPress
+    hooks_manager.HookKeyboard()
+    pythoncom.PumpMessages()
+
+
+def stop_pressed(props, prop):
+
+    global hooks_manager
+
+    hooks_manager.UnhookKeyboard()
 
 
 def onButtonPress(event):
@@ -36,7 +43,8 @@ def script_properties():
     props = obs.obs_properties_create()
 
     obs.obs_properties_add_path(props, "filePath", "Pfad für Logfile wählen: ", obs.OBS_PATH_DIRECTORY, '', "")
-    obs.obs_properties_add_button(props, "button", "Start Keylogger", keylogger_pressed)
+    obs.obs_properties_add_button(props, "button", "Starte Keylogger", keylogger_pressed)
+    obs.obs_properties_add_button(props, "button2", "Beende Keylogger", stop_pressed)
     return props
 
 
