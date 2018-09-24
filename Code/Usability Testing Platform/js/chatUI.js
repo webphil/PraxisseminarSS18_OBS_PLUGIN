@@ -5,27 +5,26 @@ App.chatUI = function () {
   var that = {},
   getStateOfChat,
   instanse = false,
-  state;
+  state,
+  name;
 
 
+  function setNickname(nickname){
+    name=nickname;
+    if (!name || name === ' ') {
+      name = "Guest  ";
+    }
+      // strip tags
+      name = name.replace(/(<([^>]+)>)/ig,"");
+      // display name on page
+      $(".name-area").html("You are: <span>" + name + "</span>");
 
-  function init(nickname){
-    var name=nickname;
+  }
+
+
+  function init(){
     var chat =  new Chat();
     window.setInterval(chat.update, 1000);
-
-      // var name = prompt("Enter your chat name:", "Guest");
-      // default name is 'Guest'
-      if (!name || name === ' ') {
-        name = "Guest  ";
-      }
-        // strip tags
-        name = name.replace(/(<([^>]+)>)/ig,"");
-        // display name on page
-        $(".name-area").html("You are: <span>" + name + "</span>");
-
-
-
       $(function() {
          chat.getState();
          // watch textarea for key presses
@@ -131,7 +130,7 @@ App.chatUI = function () {
   	});
   }
 
-
+      that.setNickname = setNickname;
       that.init = init;
       return that;
   };

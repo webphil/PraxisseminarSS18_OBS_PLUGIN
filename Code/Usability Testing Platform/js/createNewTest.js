@@ -70,7 +70,8 @@ App.createNewTest = function () {
                    + dateTime.getFullYear();
       resultJson='{"title":"' + inputTitleNewTest.value + '","date":"'+date+'","test":{' + tasks + '}}';
       processResultJson(resultJson);
-      newTestDialogueStart.style.display = "none";
+      btnSaveTest.innerHTML="Test starten";
+
     }
     else{
       var notificationEnterTitle = document.getElementById("notificationEnterTitle");
@@ -78,6 +79,14 @@ App.createNewTest = function () {
       chat.style.display = "block";
     }
   }
+
+
+
+
+
+
+
+
 
   function removeItemFromList(){
     var removable = this.parentElement;
