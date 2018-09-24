@@ -110,7 +110,15 @@ App.loadExistingTest = function () {
           currentTaskOnDisplay.innerHTML = "";
           currentTaskOnDisplay.innerHTML = task;
           console.log(task);
-
+          $.ajax({
+            type: "POST",
+            url: '../php/task.php',
+            data: {taskToDisplay: task, readTask: "false"},
+            dataType: "json",
+            success: function(data) {
+              console.log("Done");
+            }
+          });
         }
         else{
           btnNextTask.innerHTML="Test beenden";
