@@ -186,19 +186,51 @@
 </div>
 </div>
 
-
-
-
-
-
 <div id=content_tutorial>
   <div class="container-fluid text-center">
     <div class="row content">
       <div class="col-sm-8 text-left">
-        <h1>Welcome</h1>
-        <p>Tutorial</p>
-        <hr>
+     	<button class="accordion">Was muss ich installieren?</button>
+<div class="panel">
+  <p>Sie müssen OBS Studio (<a href="url">https://obsproject.com/de</a>) sowie eine Python Version (<a href="url">https://www.python.org/</a> Version > 3.52) installieren, um diese Software zu nutzen.</p>
+</div> 
+
+<button class="accordion">Wo ist der Pfad von Python und Wo muss ich ihn angeben?</button>
+<div class="panel">
+  <p>
+  	Den Pfad finden Sie dort, wo Sie es installiert haben. Den Pfad müssen Sie dann in OBS angeben (Werkzeuge -> Pythoneinstellungen)
+  	 <br><img src="src/Python.jpg" alt="Screenshot"></br>
+  </p>
+</div>
+
+<button class="accordion">Welche Hardware Requirements benötige ich zum streamen?</button>
+<div class="panel">
+  <p><br>Für das Livestreamen sollten folgende Hardware Requirements eingehalten werden:</br>
+	<br>·	Mindestens 2,3 GHz Dual-Core CPU</br>
+	<br>·	8 GB RAM Arbeitsspeicher</br>
+	<br>·	Ordentliche Internet-Verbindung (v.a. Upload)</br>
+	<br>·	Kompatible Grafikkarte</br>
+</p>
+</div> 
+
+<button class="accordion">Skripte in OBS einbinden</button>
+<div class="panel">
+  <p>Bevor Sie das Streamen beginnen, müssen Sie das Skript keylogger.py einbinden. 
+  	<br> <img src="src/script.jpg" alt="Script"> </br>
+  	Klicken Sie auf "Skripte"
+  	<br> <img src="src/scripto.jpg" alt="Hinzufügen von Skripten">  </br>
+  	Klicken Sie auf das "+" und fügen Sie das zugehörige Skript hinzu.
+  </p>
+</div> 
+
+<button class="accordion">Ein Test</button>
+<div class="panel">
+  <p>Test</p>
+</div> 
       </div>
+ </div>
+</div>
+</div>
  </div>
 </div>
 </div>
@@ -238,6 +270,8 @@
  <script src="js/loadExistingTest.js"></script>
  <script src="js/objectScreen.js"></script>
  <script src="js/completion.js"></script>
+ <script src="js/accordion.js"></script>
+
 
 
  <script>
