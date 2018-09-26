@@ -10,6 +10,7 @@ App.chatUI = function () {
 
 
   function setNickname(nickname){
+    console.log(nickname);
     name=nickname;
     if (!name || name === ' ') {
       name = "Guest  ";

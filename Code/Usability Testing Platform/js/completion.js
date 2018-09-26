@@ -27,8 +27,9 @@ App.completion = function () {
     function calculateTime(){
     	var difference = (stopTime.getTime() - startTime.getTime()) / 1000;
     	difference = "" + difference + "s";
-    	console.log(difference);
-
+			var currentTask = document.getElementById("task").innerHtml;
+			console.log(currentTask);
+			if(currentTask != ""){
     	$.ajax({
         type: "POST",
         url: '../php/completion.php',
@@ -39,8 +40,7 @@ App.completion = function () {
         }
       });
     }
-
+	}
     that.init = init;
     return that;
 };
-

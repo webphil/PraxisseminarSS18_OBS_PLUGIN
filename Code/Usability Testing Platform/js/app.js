@@ -20,6 +20,7 @@ App.OBSTest = (function () {
       annotations.init();
       completion = new App.completion();
       completion.init();
+
     }
 
       that.init = init;
