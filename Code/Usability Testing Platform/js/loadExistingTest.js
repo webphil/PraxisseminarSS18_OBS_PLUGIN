@@ -5,6 +5,8 @@ App.loadExistingTest = function () {
 
   "use strict";
   var that = {},
+  btnDownload,
+  btnNextTask,
   allTests = [];
 
 
@@ -98,7 +100,7 @@ App.loadExistingTest = function () {
       var currentTaskOnDisplay=document.getElementById("task");
       var headlineTest = document.getElementById("testTitleTestMaster");
       headlineTest.innerHTML=selectedTest.title;
-      var btnNextTask = document.getElementById("nextTask");
+      btnNextTask = document.getElementById("nextTask");
       btnNextTask.innerHTML="Weiter";
       var counter = 0;
 
@@ -121,13 +123,21 @@ App.loadExistingTest = function () {
           });
         }
         else{
-          btnNextTask.innerHTML="Test beenden";
+          btnDownload = document.getElementById("downloadResults");
+          btnDownload.style.display="block";
+          btnDownload.addEventListener("click", downloadResults);
+          btnNextTask.style.display="none";
           currentTaskOnDisplay.innerHTML = "";
         }
       });
-
     }
 
+    function downloadResults(){
+      var testmanager = document.getElementById("testmanagerStart");
+      testmanager.style.display="block";
+      btnNextTask.style.display="block";
+      btnDownload.style.display="none";
+    }
 
   that.init = init;
   return that;
