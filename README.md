@@ -7,7 +7,7 @@ Requirements include:
   - Streaming the test subjects screen to the tester
   - Recording the screen for later reviewing of the footage
   - Realtime task modelling 
-  - Recording of mouse and key events
+  - Recording of key events
   - Recording the subject during the test
   - Adding time-sensitive annotations during recording
   - Communicating with the test subject by chat
