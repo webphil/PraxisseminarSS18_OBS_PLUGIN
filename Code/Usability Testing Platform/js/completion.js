@@ -5,6 +5,8 @@ App.completion = function () {
     var that = {},
     startTime,
     stopTime,
+    nickname,
+    task,
     btnStartTask,
     btnStopTask;
 
@@ -20,20 +22,21 @@ App.completion = function () {
     }
 
     function handleUserInputStop(){
+        nickname = document.getElementById("nicknameLogin").value;
+        task = document.getElementById("task").innerText;
     	stopTime = new Date();
-    	calculateTime();
+    	calculateTime(nickname, task);
     }
 
-    function calculateTime(){
+    function calculateTime(nickID, taskID){
     	var difference = (stopTime.getTime() - startTime.getTime()) / 1000;
     	difference = "" + difference + "s";
-			var currentTask = document.getElementById("task").innerHtml;
-			console.log(currentTask);
-			if(currentTask != ""){
+		var currentTask = document.getElementById("task").innerText;
+		if(currentTask != ""){
     	$.ajax({
         type: "POST",
         url: '../php/completion.php',
-        data: {completionTime: difference},
+        data: {completionTime: difference, id: nickID, task: taskID},
         dataType: "json",
         success: function(data) {
           console.log("Done");
@@ -41,6 +44,7 @@ App.completion = function () {
       });
     }
 	}
+
     that.init = init;
     return that;
 };

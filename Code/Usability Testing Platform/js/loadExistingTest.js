@@ -139,6 +139,15 @@ App.loadExistingTest = function () {
       btnDownload.style.display="none";
     }
 
+    function downloadResults(){
+
+      var testmanager = document.getElementById("testmanagerStart");
+      testmanager.style.display="block";
+      btnNextTask.style.display="block";
+      btnDownload.style.display="none";
+      location.href = "http://167.99.248.108/php/downloadFile.php";
+    }
+
   that.init = init;
   return that;
 

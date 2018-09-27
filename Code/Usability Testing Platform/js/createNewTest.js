@@ -70,6 +70,7 @@ App.createNewTest = function () {
                    + dateTime.getFullYear();
       resultJson='{"title":"' + inputTitleNewTest.value + '","date":"'+date+'","test":{' + tasks + '}}';
       processResultJson(resultJson);
+      console.log(resultJson);
       btnSaveTest.innerHTML="Test starten";
 
     }
@@ -79,11 +80,6 @@ App.createNewTest = function () {
       chat.style.display = "block";
     }
   }
-
-
-
-
-
 
 
 
