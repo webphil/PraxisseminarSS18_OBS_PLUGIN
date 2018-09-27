@@ -28,19 +28,7 @@ App.testMasterScreen = function () {
       taskContainer.style.display="block";
       btnNextTask=document.getElementById("buttonNextTaskTestmaster");
       btnNextTask.style.display="block";
-      handleUserInteractions();
-
-
     }
-
-    function handleUserInteractions(){
-
-
-    }
-
-
-
-
 
 
 

@@ -77,15 +77,6 @@ App.testmanager = function () {
 
 
 
-
-
-
-
-
-
-
-
-
     that.init = init;
     return that;
 };
