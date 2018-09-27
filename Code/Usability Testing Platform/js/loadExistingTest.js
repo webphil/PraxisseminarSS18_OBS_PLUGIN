@@ -130,9 +130,14 @@ App.loadExistingTest = function () {
           currentTaskOnDisplay.innerHTML = "";
         }
       });
-
     }
 
+    function downloadResults(){
+      var testmanager = document.getElementById("testmanagerStart");
+      testmanager.style.display="block";
+      btnNextTask.style.display="block";
+      btnDownload.style.display="none";
+    }
 
     function downloadResults(){
 
