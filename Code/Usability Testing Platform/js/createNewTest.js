@@ -72,7 +72,6 @@ App.createNewTest = function () {
       processResultJson(resultJson);
       console.log(resultJson);
       btnSaveTest.innerHTML="Test starten";
-
     }
     else{
       var notificationEnterTitle = document.getElementById("notificationEnterTitle");
