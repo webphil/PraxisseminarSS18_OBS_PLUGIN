@@ -1,3 +1,4 @@
+//based on: https://css-tricks.com/jquery-php-chat/[2018-09-30]
 var App = App || {};
 App.chatUI = function () {
 
@@ -59,20 +60,13 @@ App.chatUI = function () {
             }
          });
       });
-
   }
-
-
-
-
 
   function Chat () {
       this.update = updateChat;
       this.send = sendChat;
       this.getState = getStateOfChat;
   }
-
-
 
 //gets the state of the chat
   function getStateOfChat() {

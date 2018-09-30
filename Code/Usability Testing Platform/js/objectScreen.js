@@ -44,9 +44,6 @@ App.objectScreen = function () {
   }
 
 
-
-
-
     that.init = init;
     return that;
   };

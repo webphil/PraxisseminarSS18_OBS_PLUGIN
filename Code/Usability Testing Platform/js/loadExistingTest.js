@@ -1,8 +1,6 @@
 var App = App || {};
 App.loadExistingTest = function () {
 
-
-
   "use strict";
   var that = {},
   btnDownload,
@@ -10,12 +8,11 @@ App.loadExistingTest = function () {
   taskContainer,
   allTests = [];
 
-
-
   function init(){
+    btnDownload = document.getElementById("downloadResults");
+    btnDownload.style.display="none";
     loadExistingTestsFromDatabase();
   }
-
 
 
     function loadExistingTestsFromDatabase(){
@@ -55,8 +52,7 @@ App.loadExistingTest = function () {
         newCellDeleteTest.appendChild(deleteBtn);
       }
     }
-
-
+    
     function removeItemFromList(){
       var testID = this.parentElement.parentElement.children[0].innerHTML;
       deleteRow(testID);
@@ -85,8 +81,6 @@ App.loadExistingTest = function () {
       processTasks(JSON.parse(allTests[id-1]));
     }
 
-
-
     function processTasks(selectedTest){
       var existingTestDialogue = document.getElementById("existingTestDialogue");
       var showTasks = document.getElementById("taskContainer");
@@ -97,34 +91,40 @@ App.loadExistingTest = function () {
       headlineTest.innerHTML=selectedTest.title;
       var counter = 0;
       btnNextTask.addEventListener("click", function(){
-        if(counter == 0){
-          btnNextTask.innerHTML="Test starten"
-        }
-        counter += 1;
-        if(counter < Object.keys(selectedTest.test).length){
-          var myTask = "task"+(counter);
-          var task = selectedTest.test[myTask];
-          currentTaskOnDisplay.innerHTML = "";
-          currentTaskOnDisplay.innerHTML = task;
-          $.ajax({
-            type: "POST",
-            url: '../php/task.php',
-            data: {taskToDisplay: task, readTask: "false"},
-            dataType: "json",
-            success: function(data) {
-              console.log("Done");
-            }
-          });
-        }
-        else{
-          btnDownload = document.getElementById("downloadResults");
-          btnDownload.style.display="block";
-          btnDownload.addEventListener("click", downloadResults);
-          btnNextTask.style.display="none";
-          currentTaskOnDisplay.innerHTML = "";
-          taskContainer.style.display = "none";
-          headlineTest.innerHTML = "Alle Tasks wurden erledigt"
-        }
+          btnNextTask.innerHTML="weiter"
+          counter += 1;
+          if(counter < Object.keys(selectedTest.test).length){
+            var myTask = "task"+(counter);
+            var task = selectedTest.test[myTask];
+            currentTaskOnDisplay.innerHTML = "";
+            currentTaskOnDisplay.innerHTML = myTask + ": " + task;
+            $.ajax({
+              type: "POST",
+              url: '../php/task.php',
+              data: {taskToDisplay: task, readTask: "false"},
+              dataType: "json",
+              success: function(data) {
+                console.log("Done");
+              }
+            });
+          }
+          else if(counter = Object.keys(selectedTest.test).length){
+            var task = "Sie haben alle Tasks erledigt. Vielen Dank für die Teilnahme am Test.";
+            $.ajax({
+              type: "POST",
+              url: '../php/task.php',
+              data: {taskToDisplay: task, readTask: "false"},
+              dataType: "json",
+              success: function(data) {
+                console.log("Done");
+              }
+            });
+            btnDownload.style.display="block";
+            btnDownload.addEventListener("click", downloadResults);
+            btnNextTask.style.display="none";
+            currentTaskOnDisplay.innerHTML = "";
+            headlineTest.innerHTML = "Alle Tasks wurden erledigt"
+          }
       });
 
     }
@@ -135,10 +135,9 @@ App.loadExistingTest = function () {
       testmanager.style.display="block";
       btnNextTask.style.display="block";
       btnDownload.style.display="none";
+      taskContainer.style.display="none";
       location.href = "http://167.99.248.108/php/downloadFile.php";
     }
-
-
 
 
   that.init = init;
