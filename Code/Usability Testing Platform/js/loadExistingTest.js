@@ -18,8 +18,6 @@ App.loadExistingTest = function () {
   }
 
 
-
-
   function handleExistingTestUserInteractions(){
     $('.table > tbody > tr').click(function() {
     var selectedTest = $(this).find('td')[0].innerHTML;
@@ -50,9 +48,9 @@ App.loadExistingTest = function () {
         allTests.push(data[i]);
         var tableRef = document.getElementById('tableTests').getElementsByTagName('tbody')[0];
         var newRow   = tableRef.insertRow(tableRef.rows.length);
-        newRow.addEventListener("click", displayTest);
         var newCellNumber = newRow.insertCell(0)
         var newCellTitle  = newRow.insertCell(1);
+        newCellTitle.addEventListener("click", displayTest);
         var newCellDate = newRow.insertCell(2);
         var newCellDeleteTest = newRow.insertCell(3);
         var deleteBtn = document.createElement('a');
@@ -91,7 +89,7 @@ App.loadExistingTest = function () {
       btnNextTask = document.getElementById("nextTask");
       btnNextTask.style.display="block";
       btnNextTask.innerHTML="Weiter";
-      var id=parseInt(this.querySelector("td").innerHTML);
+      var id=parseInt(this.parentElement.querySelector("td").innerHTML);
       processTasks(JSON.parse(allTests[id-1]));
     }
 
