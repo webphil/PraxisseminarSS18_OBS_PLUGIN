@@ -48,7 +48,6 @@ App.loadExistingTest = function () {
         allTests.push(data[i]);
         var tableRef = document.getElementById('tableTests').getElementsByTagName('tbody')[0];
         var newRow   = tableRef.insertRow(tableRef.rows.length);
-      //  newRow.addEventListener("click", displayTest);
         var newCellNumber = newRow.insertCell(0)
         var newCellTitle  = newRow.insertCell(1);
         newCellTitle.addEventListener("click", displayTest);
