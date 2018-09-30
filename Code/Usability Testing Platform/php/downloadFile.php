@@ -26,6 +26,7 @@
 	function clearFiles(){
 		file_put_contents("Annotations.txt", "");
 		file_put_contents("chat.txt", "");
-		file_put_contents("completionTime.csv", "");		
+		file_put_contents("completionTime.csv", "");
+		file_put_contents("taskToDisplay.txt", "");		
 	}
 ?>
