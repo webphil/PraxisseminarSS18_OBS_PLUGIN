@@ -10,7 +10,6 @@ App.annotations = function () {
 
     function init(){
     singleAnnotation = document.getElementById("annotation");
-    btnDownload = document.getElementById("download");
     btnAddAnnotation = document.getElementById("btnSubmitAnnotation");
     btnAddAnnotation.addEventListener("click", handleUserInput);
     }

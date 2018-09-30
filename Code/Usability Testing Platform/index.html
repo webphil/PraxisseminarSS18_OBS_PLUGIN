@@ -24,11 +24,6 @@
      <div class="navbar-header">
        <p class="header">Regensburger Usability Testing Plattform</p>
      </div>
-     <div class="collapse navbar-collapse">
-       <ul class="nav navbar-nav navbar-right">
-         <a id="download" class ="button3" style="color: white;"><span class="glyphicon glyphicon-download"></span></a>
-       </ul>
-     </div>
    </div>
  </nav>
 
@@ -112,22 +107,21 @@
           <div class="btnBackTestmanager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px;"></div>
         </div>
         <div id="newTestDialogue" class="well" style="display: none;">
-            <div id="newTestDialogueStart">
+            <div id="newTestDialogueStart" style="padding-bottom:40px;">
               <h4>Neuer Test</h4>
               <h5>Geben Sie einen Titel für den Test ein: </h5>
               <h6 id="notificationEnterTitle" style="color: red; display: none;">Sie müssen einen Titel angeben</h6>
-              <input type="text" class="form-control" id="titleNewTest" placeholder="Titel"></input>
+              <input type="text" class="form-control" id="titleNewTest" placeholder="Titel"style="margin-bottom: 20px;"></input>
               <h4>Tasks hinzufügen: </h4>
               <ol id="addedTasks" style="padding:10px;"></ol>
               <textarea id="taskInput" maxlength='100' style="width: 100%;"></textarea>
-
-              <button class="roundButton" id="btnAddSingleTask" style="float: right"><span class="glyphicon glyphicon-plus" style="color: white; padding: 2px;"></button>
-              <div type="text"style="float: right; padding: 10px">Task hinzufügen</div>
-              <hr>
-              <div style="padding: 30px 0 40px 0">
-                <div style="float: right; padding: 0 0 300px 0"><a class="secondarybutton" id="saveNewTest">Test Speichern<span class="glyphicon glyphicon-menu-right" style="padding: 10px;"></a></div>
-                <div style="float: left"><a class="button3" id="btnBackToTestManager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px; margin-right: 0;"></a></div>
-              </div>
+              <div style="float: right;">
+                <div type="text" style="display: inline-block; margin-right:10px;">Task hinzufügen</div>
+                <div style="display: inline-block;"><button class="roundButton" id="btnAddSingleTask"><span class="glyphicon glyphicon-plus" style="color: white; padding: 2px;"></button></div>
+            </div>
+            <hr>
+            <div style="padding: 20px; float: right;"><a class="secondarybutton" style="width: 100%; overflow: hidden;" id="saveNewTest">Test Speichern</a></div>
+            <div><a class="button3" id="btnBackToTestManager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px; margin-left: 0px;"></a></div>
             </div>
           </div>
         <div id="freeTestDialogue" class="well" style="display: none;">
@@ -137,17 +131,17 @@
             <div class="btnBackTestmanager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px;"></div>
           </div>
 
-        <div id="taskContainer" style="display: none">
+        <div id="taskContainer">
           <div type="text" id="result"></div>
           <div class="well">
+            <div style="padding-bottom:40px;">
             <h4>Tasks: </h4>
               <h5 id="testTitleTestMaster"></h5>
-              <div id="task"></div>
-
+              <div type="text" id="task"></div>
           <hr>
-          <div id="buttonNextTaskTestmaster" style="display: none">
-              <button class="secondarybutton" id="nextTask">Weiter</button>
-              <button class="defaultbutton" id="downloadResults">Test beenden & Ergebnisse herunterladen</button>
+          <div id="buttonNextTaskTestmaster">
+              <button class="secondarybutton" id="nextTask" style="float: right; display: none;">Weiter</button>
+              <button class="secondarybutton" id="downloadResults" style="width: 100%; text-align: center; display: none;">Test beenden & Ergebnisse herunterladen</button>
           </div>
           <div id=content_objectMain>
             <div id="testStart">
@@ -156,6 +150,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
 
 
@@ -167,8 +162,8 @@
             <div class="chat-area"></div>
           </div>
             <form class="send-message-area">
-                <p>Your message: </p>
-                <textarea class="sendie" maxlength = '100'></textarea>
+                <p>Ihre Nachricht: </p>
+                <textarea class="sendie" maxlength = '100' style="width: 100%"></textarea>
             </form>
 
         </div>
@@ -214,7 +209,7 @@
 <div class="panel">
   </br>
   <p>Bevor Sie das Streamen beginnen, müssen Sie das Skript keylogger.py einbinden.</br>
-    Sie können das Script <a href="src/Python.JPG" download>hier </a> herunterladen.
+    Sie können das Script <a href="src/keylogger.py" download>hier </a> herunterladen.
   	<br></br> <img src="src/script.jpg" alt="Script"> </br></br>
   	Klicken Sie auf "Skripte"
   	<br></br> <img src="src/script.jpg" alt="Hinzufügen von Skripten">  </br></br>

@@ -1,15 +1,4 @@
 
-/*.color {
-  --primary: #8AA399;
-  --secondary: #7D003C;
-  --success: #28a745;
-  --info: #ccc;
-  --warning: #ffc107;
-  --danger: #dc3545;
-  --light: #f3f3f3;
-  --dark: #151515;
- }
-*/
 .navbar {
   margin-bottom: 0;
   border-radius: 0;
@@ -108,7 +97,8 @@
   color: #000000;
   text-align: center;
   font-size: 16px;
-  padding: 15px;
+  padding: 8px;
+  margin: 10px;
   width: 30%;
   overflow: hidden;
 

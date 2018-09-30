@@ -10,15 +10,14 @@ App.chatUI = function () {
 
 
   function setNickname(nickname){
-    console.log(nickname);
     name=nickname;
     if (!name || name === ' ') {
-      name = "Guest  ";
+      name = "Gast";
     }
       // strip tags
       name = name.replace(/(<([^>]+)>)/ig,"");
       // display name on page
-      $(".name-area").html("You are: <span>" + name + "</span>");
+      $(".name-area").html("Sie sind: <span>" + name + "</span>");
 
   }
 
@@ -46,6 +45,7 @@ App.chatUI = function () {
          // watch textarea for release of key press
          $('.sendie').keyup(function(e) {
             if (e.keyCode == 13) {
+                  name = name + ": "
                   var text = $(this).val();
                   var maxLength = $(this).attr("maxlength");
                   var length = text.length;
