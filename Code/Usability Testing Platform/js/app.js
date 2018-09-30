@@ -12,16 +12,19 @@ App.OBSTest = (function () {
 
 
     function init() {
-      login = new App.login();
-      login.init();
-      video = new App.video();
-      video.init();
-      annotations = new App.annotations();
-      annotations.init();
-      completion = new App.completion();
-      completion.init();
+
+        login = new App.login();
+        login.init();
+        video = new App.video();
+        video.init();
+        annotations = new App.annotations();
+        annotations.init();
+        completion = new App.completion();
+        completion.init();
+
     }
 
       that.init = init;
       return that;
+
 }());
