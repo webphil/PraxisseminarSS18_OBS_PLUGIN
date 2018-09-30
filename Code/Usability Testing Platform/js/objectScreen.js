@@ -6,6 +6,7 @@ App.objectScreen = function () {
   taskContainer,
   singleTask,
   btnStartTask,
+  btnDownload,
   btnStopTask;
 
 
@@ -14,6 +15,8 @@ App.objectScreen = function () {
       chat.style.display="block";
       taskContainer = document.getElementById("taskContainer");
       taskContainer.style.display="block";
+      btnDownload = document.getElementById("buttonNextTaskTestmaster");
+      btnDownload.style.display = "none";
       var uiTaskCompletion = document.getElementById("content_objectMain");
       uiTaskCompletion.style.display="block";
       singleTask = document.getElementById("singleTask");
