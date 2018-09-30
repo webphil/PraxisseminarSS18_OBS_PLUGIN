@@ -12,6 +12,7 @@ App.objectScreen = function () {
   function init(nameObject){
       var chat = document.getElementById("chatContainer");
       chat.style.display="block";
+
       taskContainer = document.getElementById("taskContainer");
       taskContainer.style.display="block";
       var uiTaskCompletion = document.getElementById("content_objectMain");

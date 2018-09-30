@@ -5,7 +5,6 @@ App.testmanager = function () {
     var that = {},
     btnChoseExistingTest,
     btnCreateNewTest,
-
     btnStartFreeTest,
     testmanagerStartDialogue,
     existingTestDialogue,

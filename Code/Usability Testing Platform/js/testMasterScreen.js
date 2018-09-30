@@ -25,9 +25,7 @@ App.testMasterScreen = function () {
       testManager = document.getElementById("testmanagerStart");
       testManager.style.display="block";
       taskContainer=document.getElementById("taskContainer");
-      taskContainer.style.display="block";
-      btnNextTask=document.getElementById("buttonNextTaskTestmaster");
-      btnNextTask.style.display="block";
+      taskContainer.style.display="none";
     }
 
 

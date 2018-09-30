@@ -11,14 +11,10 @@ App.createNewTest = function () {
   btnBackToTestManager,
   titleNewTest,
   resultJson,
-  btnAddTask,
-  chat
-  ;
+  btnAddTask;
 
 
   function init(){
-    chat = document.getElementById("chatContainer");
-    chat.style.display="none";
     newTestDialogueStart = document.getElementById("newTestDialogueStart");
     newTestDialogueStart.style.display="block";
     btnSaveTest = document.getElementById("saveNewTest");
@@ -47,14 +43,13 @@ App.createNewTest = function () {
   function goBackToTestManager(){
     newTestDialogueStart.style.display= "none";
     document.getElementById("testmanagerStart").style.display="block";
-    chat.style.display = "block";
   }
 
   function saveTest(){
     if(inputTitleNewTest.value != ""){
       var tasklist=document.getElementById("addedTasks");
       var task = tasklist.getElementsByTagName("li");
-      for (var i = 0; i < task.length; ++i) {
+      for (var i = 0; i < task.length; i++) {
         var text = task[i].innerText;
         text = text.slice(0, text.length-1);
           if(i<task.length-1){
@@ -70,13 +65,12 @@ App.createNewTest = function () {
                    + dateTime.getFullYear();
       resultJson='{"title":"' + inputTitleNewTest.value + '","date":"'+date+'","test":{' + tasks + '}}';
       processResultJson(resultJson);
-      console.log(resultJson);
       btnSaveTest.innerHTML="Test starten";
+
     }
     else{
       var notificationEnterTitle = document.getElementById("notificationEnterTitle");
       notificationEnterTitle.style.display = "block";
-      chat.style.display = "block";
     }
   }
 
