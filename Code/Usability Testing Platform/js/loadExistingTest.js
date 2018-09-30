@@ -14,16 +14,8 @@ App.loadExistingTest = function () {
 
   function init(){
     loadExistingTestsFromDatabase();
-    handleExistingTestUserInteractions();
   }
 
-
-  function handleExistingTestUserInteractions(){
-    $('.table > tbody > tr').click(function() {
-    var selectedTest = $(this).find('td')[0].innerHTML;
-    displayTest(selectedTest);
-    });
-  }
 
 
     function loadExistingTestsFromDatabase(){
@@ -48,7 +40,7 @@ App.loadExistingTest = function () {
         allTests.push(data[i]);
         var tableRef = document.getElementById('tableTests').getElementsByTagName('tbody')[0];
         var newRow   = tableRef.insertRow(tableRef.rows.length);
-        var newCellNumber = newRow.insertCell(0)
+        var newCellNumber = newRow.insertCell(0);
         var newCellTitle  = newRow.insertCell(1);
         newCellTitle.addEventListener("click", displayTest);
         var newCellDate = newRow.insertCell(2);
