@@ -43,6 +43,8 @@ App.createNewTest = function () {
   function goBackToTestManager(){
     newTestDialogueStart.style.display= "none";
     document.getElementById("testmanagerStart").style.display="block";
+    document.getElementById("titleNewTest").value = "";
+    $(addedTasks).empty();
   }
 
   function saveTest(){
