@@ -44,8 +44,6 @@ App.login = function () {
   }
 
 
-
-
   function handleLoginRequests(){
     checkBoxTestmaster = document.getElementById("checkBoxTestmaster");
     checkBoxObject = document.getElementById("checkBoxObject");
@@ -73,7 +71,6 @@ App.login = function () {
     startContent.style.display = "none";
     tutorial.style.display = "none";
     chat.setNickname(name + "  ");
-
   }
 
 
@@ -87,10 +84,6 @@ App.login = function () {
 
   }
 
-
-
-
-
   function showTutorial(){
     startContent.style.display = "none";
     adminMain.style.display = "none";
@@ -103,7 +96,6 @@ App.login = function () {
       startContent.style.display = "block";
       tutorial.style.display = "none";
   }
-
 
 
 that.init = init;

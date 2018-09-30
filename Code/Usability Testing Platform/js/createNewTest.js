@@ -11,14 +11,25 @@ App.createNewTest = function () {
   btnBackToTestManager,
   titleNewTest,
   resultJson,
-  btnAddTask;
+  btnAddTask,
+  inputNewTest,
+  alertTestSaved,
+  labelBtnBackToTestmanager,
+  startNewTest;
 
 
   function init(){
-    newTestDialogueStart = document.getElementById("newTestDialogueStart");
+    inputNewTest = document.getElementById("inputNewTest");
+    inputNewTest.style.display="block";
+    alertTestSaved = document.getElementById("alertTestSaved");
+    alertTestSaved.style.display="none";
+    newTestDialogueStart = document.getElementById("newTestDialogue");
     newTestDialogueStart.style.display="block";
     btnSaveTest = document.getElementById("saveNewTest");
+    btnSaveTest.style.display="block";
     btnSaveTest.addEventListener("click", saveTest);
+    labelBtnBackToTestmanager = document.getElementById("labelBtnBackToTestmanager");
+    labelBtnBackToTestmanager.innerHTML="";
     inputTitleNewTest = document.getElementById("titleNewTest");
     btnBackToTestManager = document.getElementById("btnBackToTestManager");
     btnBackToTestManager.addEventListener("click", goBackToTestManager);
@@ -48,32 +59,34 @@ App.createNewTest = function () {
   }
 
   function saveTest(){
-    if(inputTitleNewTest.value != ""){
-      var tasklist=document.getElementById("addedTasks");
-      var task = tasklist.getElementsByTagName("li");
-      for (var i = 0; i < task.length; i++) {
-        var text = task[i].innerText;
-        text = text.slice(0, text.length-1);
-          if(i<task.length-1){
-            tasks += '"task' + (i+1) + '":"'+ text + '",'
-          }
-          else{
-            tasks += '"task' + (i+1) + '":"' + text + '"'
-          }
+      if(inputTitleNewTest.value != ""){
+        var tasklist=document.getElementById("addedTasks");
+        var task = tasklist.getElementsByTagName("li");
+        for (var i = 0; i < task.length; i++) {
+          var text = task[i].innerText;
+          text = text.slice(0, text.length-1);
+            if(i<task.length-1){
+              tasks += '"task' + (i+1) + '":"'+ text + '",'
+            }
+            else{
+              tasks += '"task' + (i+1) + '":"' + text + '"'
+            }
+        }
+        var dateTime = new Date();
+        var date = ""+ dateTime.getDate() + "."
+                     + dateTime.getMonth() + "."
+                     + dateTime.getFullYear();
+        resultJson='{"title":"' + inputTitleNewTest.value + '","date":"'+date+'","test":{' + tasks + '}}';
+        processResultJson(resultJson);
+        btnSaveTest.style.display="none";
+        inputNewTest.style.display="none";
+        alertTestSaved.style.display="block";
+        labelBtnBackToTestmanager.innerHTML="zurück zum Testmanager";
       }
-      var dateTime = new Date();
-      var date = ""+ dateTime.getDate() + "."
-                   + dateTime.getMonth() + "."
-                   + dateTime.getFullYear();
-      resultJson='{"title":"' + inputTitleNewTest.value + '","date":"'+date+'","test":{' + tasks + '}}';
-      processResultJson(resultJson);
-      btnSaveTest.innerHTML="Test starten";
-
-    }
-    else{
-      var notificationEnterTitle = document.getElementById("notificationEnterTitle");
-      notificationEnterTitle.style.display = "block";
-    }
+      else{
+        var notificationEnterTitle = document.getElementById("notificationEnterTitle");
+        notificationEnterTitle.style.display = "block";
+      }
   }
 
 

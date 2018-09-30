@@ -7,10 +7,9 @@
 .well{
   background-color: white;
   border-radius: 2px;
-  border-color: lightgrey;
+  border-color: darkgrey;
   border-width: thin;
 }
-
 
 
 .header{
@@ -34,7 +33,6 @@
 .flowplayer{
   height: inherit;
 }
-
 
 
 .listitem{
@@ -62,31 +60,16 @@
   transition: all 0.5s;
   margin: 5px;
   overflow: hidden;
+  transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s; /* Safari */
 
 }
 
-
-.defaultbutton span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+.defaultbutton:hover{
+  background-color: #f0f0f0;
+  border: 1px solid lightgrey;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.15), 0 1px 1px 0 rgba(0,0,0,0.1);
 }
-
-.defaultbutton span:after {
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -40px;
-  transition: 0.5s;
-}
-
-.defaultbutton:hover span {
-  padding-right: 10px;
-}
-
-
-
 
 
 .secondarybutton {
@@ -101,7 +84,12 @@
   margin: 10px;
   width: 30%;
   overflow: hidden;
+}
 
+.secondarybutton:hover{
+  background-color: #f0f0f0;
+  border: 1px solid lightgrey;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.15), 0 1px 1px 0 rgba(0,0,0,0.1);
 }
 
 .button3{
@@ -126,18 +114,12 @@
 }
 
 
-
-
-
-
 .btnBackTestmanager{
   font-size: 16px;
   padding:8px;
   color: black;
   cursor: pointer;
 }
-
-
 
 .textinput{
   padding: 18px;
@@ -151,75 +133,6 @@
   border-radius: 4px;
 }
 
-
-
-#chat-wrap{
-  border: 1px
-  solid #eee;
-}
-
-#chat-area{
-  height: 300px;
-  overflow: auto;
-  border: 1px
-  solid #666;
-  padding: 20px;
-  background: white;
-}
-
-#chat-area span{
-  color: black;
-  background: #333;
-  padding: 4px 8px;
-  border-radius: 3px;
-  margin: 0 5px 0 0;
-}
-
-
-#chat-area p{
-  padding: 8px 0;
-  border-bottom: 1px
-  solid #666;
-}
-
-#name-area{
-  position: absolute;
-  color: black;
-  font: bold 12px "Helvetica", Sans-Serif;
-}
-
-
-#name-area span {
-  color: #fa9f00;
-}
-
-#send-message-area p{
-  padding-top: 10px;
-  float: left;
-  color: #666;
-  font-size: 16px;
-  font-weight: bolder;
-}
-
-
-#sendie{
-  border: 1px
-  color: #666;
-  width: 100%;
-  font: 12px "Helvetica", Sans-Serif;
-}
-
-.accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    outline: none;
-    transition: 0.4s;
-}
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .accordion:hover {

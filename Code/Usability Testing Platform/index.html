@@ -1,4 +1,3 @@
-
  <!DOCTYPE html>
  <html lang="en">
  <html xmlns="http://www.w3.org/1999/xhtml">
@@ -6,19 +5,14 @@
    <title>Usability Testing Platform</title>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <script src="http://releases.flowplayer.org/js/flowplayer-3.2.12.min.js"></script>
    <link rel="stylesheet" href="src/style.css" type="text/css">
 
-
-
-
  </head>
  <body onload="showMainContent()">
-
  <nav class="navbar navbar-inverse">
    <div class="container-fluid">
      <div class="navbar-header">
@@ -27,12 +21,9 @@
    </div>
  </nav>
 
-
-
   <div id=content_main>
     <div class="well" style="margin: 40px;">
-      <h1>Welcome</h1>
-      <p>Beschreibung.</p>
+      <h1>Willkommen</h1>
       <hr>
           <h4 style="padding: 10px;">Bitte geben Sie einen Namen an</h4>
           <input class="form-control textinput" type="nickname" id="nicknameLogin" placeholder="Name" type="text" required>
@@ -52,7 +43,6 @@
 </div>
 
 
-
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-8" id="container-left">
@@ -68,15 +58,12 @@
               <input type="text" class="form-control" id="annotation"></input>
           </div>
           <div class="col-md-4">
-                  <button type="submit" class="secondarybutton" id="btnSubmitAnnotation">Submit</button>
+                  <button type="submit" class="secondarybutton" id="btnSubmitAnnotation" style="margin-top: 0px">Submit</button>
                 </div>
           </div>
-
       </div></div>
       </div>
     </div>
-
-
 
     <div class="col-md-4" id="container-right">
       <div class="well">
@@ -109,19 +96,22 @@
         <div id="newTestDialogue" class="well" style="display: none;">
             <div id="newTestDialogueStart" style="padding-bottom:40px;">
               <h4>Neuer Test</h4>
-              <h5>Geben Sie einen Titel für den Test ein: </h5>
-              <h6 id="notificationEnterTitle" style="color: red; display: none;">Sie müssen einen Titel angeben</h6>
-              <input type="text" class="form-control" id="titleNewTest" placeholder="Titel"style="margin-bottom: 20px;"></input>
-              <h4>Tasks hinzufügen: </h4>
-              <ol id="addedTasks" style="padding:10px;"></ol>
-              <textarea id="taskInput" maxlength='100' style="width: 100%;"></textarea>
-              <div style="float: right;">
-                <div type="text" style="display: inline-block; margin-right:10px;">Task hinzufügen</div>
-                <div style="display: inline-block;"><button class="roundButton" id="btnAddSingleTask"><span class="glyphicon glyphicon-plus" style="color: white; padding: 2px;"></button></div>
-            </div>
+              <div id="inputNewTest">
+                <h5>Geben Sie einen Titel für den Test ein: </h5>
+                <h6 id="notificationEnterTitle" style="color: red; display: none;">Sie müssen einen Titel angeben</h6>
+                <input type="text" class="form-control" id="titleNewTest" placeholder="Titel"style="margin-bottom: 20px;"></input>
+                <h4>Tasks hinzufügen: </h4>
+                <ol id="addedTasks" style="padding:10px;"></ol>
+                <textarea id="taskInput" maxlength='100' style="width: 100%;"></textarea>
+                <div style="float: right;">
+                  <div type="text" style="display: inline-block; margin-right:10px;">Task hinzufügen</div>
+                  <div style="display: inline-block;"><button class="roundButton" id="btnAddSingleTask"><span class="glyphicon glyphicon-plus" style="color: white; padding: 2px;"></button></div>
+                </div>
+              </div>
+              <div type="text" id="alertTestSaved">Der Test wurde gespeichert.</div>
             <hr>
-            <div style="padding: 20px; float: right;"><a class="secondarybutton" style="width: 100%; overflow: hidden;" id="saveNewTest">Test Speichern</a></div>
-            <div><a class="button3" id="btnBackToTestManager"><span class="glyphicon glyphicon-menu-left" style="padding: 10px; margin-left: 0px;"></a></div>
+            <div style="padding: 20px; float: right;"><button class="secondarybutton" style="width: 100%; overflow: hidden;" id="saveNewTest">Test Speichern</button></div>
+            <div id="btnBackToTestManager"><a class="button3"><span class="glyphicon glyphicon-menu-left" style="padding: 10px; margin-left: 0px;"><a class="button3" id="labelBtnBackToTestmanager"></a></a></div>
             </div>
           </div>
         <div id="freeTestDialogue" class="well" style="display: none;">
@@ -141,7 +131,7 @@
           <hr>
           <div id="buttonNextTaskTestmaster">
               <button class="secondarybutton" id="nextTask" style="float: right; display: none;">Weiter</button>
-              <button class="secondarybutton" id="downloadResults" style="width: 100%; text-align: center; display: none;">Test beenden & Ergebnisse herunterladen</button>
+              <button class="secondarybutton" id="downloadResults" style="width: 100%; text-align: center;">Test beenden & Ergebnisse herunterladen</button>
           </div>
           <div id=content_objectMain>
             <div id="testStart">
@@ -249,7 +239,7 @@
   	<br> 1) Hier starten Sie ihren Task und sobald Sie fertig sind, müssen Sie auf Fertig drücken, damit die Taskcompletion Time notiert werden kann </br>
   	<br> 2) Der Chat dient zur Kommunikation zwischen Testleiter und Proband </br>
   </p>
-</div> 
+</div>
 
 <button class="defaultbutton" id="btnBackToStart"><span class="glyphicon glyphicon-chevron-left"></span>Zurück</a></button>
 
@@ -257,9 +247,6 @@
  </div>
 </div>
 </div>
-
-
-
 
 <script>
       var startContent = document.getElementById('content_main');
@@ -273,10 +260,6 @@
            tutorial.style.display = "none";
          }
 </script>
-
-
-
-
 
  <script src="js/app.js"></script>
  <script src="js/login.js"></script>
