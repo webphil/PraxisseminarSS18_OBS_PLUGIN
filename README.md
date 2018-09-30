@@ -12,4 +12,5 @@ Requirements include:
   - Adding time-sensitive annotations during recording
   - Communicating with the test subject by chat
 
+Running version usable here: http://167.99.248.108/
 
